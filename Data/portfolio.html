@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.larixgroup.ru/portfolio -->
+<html class=" js no-flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="portfolio_files/tag.js"></script><script>(function(){function hookGeo() {
+  //<![CDATA[
+  const WAIT_TIME = 100;
+  const hookedObj = {
+    getCurrentPosition: navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),
+    watchPosition: navigator.geolocation.watchPosition.bind(navigator.geolocation),
+    fakeGeo: true,
+    genLat: 38.883333,
+    genLon: -77.000
+  };
+
+  function waitGetCurrentPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        hookedObj.tmp_successCallback({
+          coords: {
+            latitude: hookedObj.genLat,
+            longitude: hookedObj.genLon,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        hookedObj.getCurrentPosition(hookedObj.tmp_successCallback, hookedObj.tmp_errorCallback, hookedObj.tmp_options);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        navigator.getCurrentPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        hookedObj.watchPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  Object.getPrototypeOf(navigator.geolocation).getCurrentPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp_successCallback = successCallback;
+    hookedObj.tmp_errorCallback = errorCallback;
+    hookedObj.tmp_options = options;
+    waitGetCurrentPosition();
+  };
+  Object.getPrototypeOf(navigator.geolocation).watchPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp2_successCallback = successCallback;
+    hookedObj.tmp2_errorCallback = errorCallback;
+    hookedObj.tmp2_options = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${hookGeo}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'updateLocation':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          hookedObj.genLat = message.info.coords.lat;
+          hookedObj.genLon = message.info.coords.lon;
+          hookedObj.fakeGeo = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}hookGeo();})()</script>  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <script async="" src="portfolio_files/chatra.js"></script><style>@-webkit-keyframes chatra-chat-appear-from-bottom {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px) scale(.97);
+    transform: translateY(20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes chatra-chat-appear-from-bottom {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px) scale(.97);
+    transform: translateY(20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+  }
+}
+@-webkit-keyframes chatra-chat-appear-from-top {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-20px) scale(.97);
+    transform: translateY(-20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes chatra-chat-appear-from-top {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-20px) scale(.97);
+    transform: translateY(-20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+  }
+}
+@-webkit-keyframes chatra-chat-appear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.95);
+    transform: scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes chatra-chat-appear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.95);
+    transform: scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes chatra-round-button-appear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes chatra-round-button-appear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes chatra-tab-button-appear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.9);
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes chatra-tab-button-appear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.9);
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes chatra-transparent-appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes chatra-transparent-appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+html.chatra-mobile-widget-expanded,
+body.chatra-mobile-widget-expanded {
+  overflow: hidden !important;
+  height: 100% !important;
+  width: 100% !important;
+  position: fixed !important;
+  margin: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+#chatra {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  max-height: calc(100% - 40px);
+  max-width: calc(100% - 40px);
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  -webkit-transition-property: visibility,opacity;
+  transition-property: visibility,opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  min-width: 0;
+  display: block;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+}
+@media print {
+  #chatra {
+    display: none;
+  }
+}
+#chatra__iframe-wrapper,
+#chatra__iframe {
+  left: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  background: transparent !important;
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+}
+#chatra__iframe-wrapper {
+  position: absolute;
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.1),0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 3px rgba(0,0,0,0.1),0 0 10px rgba(0,0,0,0.3);
+  overflow: hidden !important;
+}
+#chatra #chatra__iframe-wrapper,
+#chatra.chatra--safari #chatra__iframe,
+#chatra.chatra--webkit.chatra--expanded #chatra__iframe {
+  border-radius: 12px;
+}
+#chatra.chatra--mobile-widget:not(.chatra--expanded),
+#chatra.chatra--mobile-widget:not(.chatra--expanded) * {
+  cursor: pointer;
+}
+#chatra.chatra--safari #chatra__iframe {
+  -webkit-mask-image: -webkit-gradient(linear,left top, left bottom,from(#000),to(#000));
+  -webkit-mask-image: linear-gradient(#000,#000);
+  mask-image: -webkit-gradient(linear,left top, left bottom,from(#000),to(#000));
+  mask-image: linear-gradient(#000,#000);
+  -webkit-mask-position: 50% 50%;
+  mask-position: 50% 50%;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+#chatra:not(.chatra--expanded) #chatra__iframe-wrapper {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+}
+#chatra:not(.chatra--expanded):hover #chatra__iframe-wrapper {
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.1),0 0 15px rgba(0,0,0,0.4);
+  box-shadow: 0 0 3px rgba(0,0,0,0.1),0 0 15px rgba(0,0,0,0.4);
+}
+#chatra.chatra--visible {
+  visibility: visible;
+  opacity: 1;
+}
+#chatra.chatra--animating {
+  -webkit-transition: 350ms cubic-bezier(.25,.1,0,1);
+  transition: 350ms cubic-bezier(.25,.1,0,1);
+  -webkit-transition-property: height,width,max-width,max-height,top,bottom,left,right,-webkit-transform;
+  transition-property: height,width,max-width,max-height,top,bottom,left,right,-webkit-transform;
+  transition-property: height,width,max-width,max-height,top,bottom,left,right,transform;
+  transition-property: height,width,max-width,max-height,top,bottom,left,right,transform,-webkit-transform;
+}
+#chatra.chatra--style-round:not(.chatra--expanded) #chatra__iframe-wrapper,
+#chatra.chatra--style-round.chatra--safari:not(.chatra--expanded) #chatra__iframe {
+  border-radius: 50%;
+}
+#chatra.chatra--custom-button:not(.chatra--expanded) {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none;
+  -webkit-transition: none;
+  transition: none;
+}
+#chatra.chatra--fast-toggle.chatra--style-round:not(.chatra--expanded) #chatra__iframe-wrapper {
+  -webkit-animation: chatra-round-button-appear 150ms ease-out 50ms both;
+  animation: chatra-round-button-appear 150ms ease-out 50ms both;
+}
+#chatra.chatra--fast-toggle.chatra--style-tab:not(.chatra--expanded) #chatra__iframe-wrapper {
+  -webkit-animation: chatra-tab-button-appear 150ms ease-out 50ms both;
+  animation: chatra-tab-button-appear 150ms ease-out 50ms both;
+}
+#chatra.chatra--fast-toggle.chatra--expanded #chatra__iframe-wrapper {
+  -webkit-animation: chatra-chat-appear 150ms ease-out 50ms both;
+  animation: chatra-chat-appear 150ms ease-out 50ms both;
+}
+#chatra.chatra--fast-toggle.chatra--transparent #chatra__iframe-wrapper {
+  -webkit-animation-name: chatra-transparent-appear;
+  animation-name: chatra-transparent-appear;
+}
+#chatra.chatra--fast-toggle.chatra--expanded:not(.chatra--mobile-widget):not(.chatra--transparent) #chatra__iframe-wrapper {
+  -webkit-animation-name: chatra-chat-appear-from-bottom;
+  animation-name: chatra-chat-appear-from-bottom;
+}
+#chatra.chatra--fast-toggle.chatra--pos-top.chatra--expanded:not(.chatra--mobile-widget):not(.chatra--transparent) #chatra__iframe-wrapper {
+  -webkit-animation-name: chatra-chat-appear-from-top;
+  animation-name: chatra-chat-appear-from-top;
+}
+#chatra.chatra--expanded #chatra__iframe-wrapper {
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.1),0 5px 50px rgba(0,0,0,0.2);
+  box-shadow: 0 0 3px rgba(0,0,0,0.1),0 5px 50px rgba(0,0,0,0.2);
+}
+#chatra.chatra--side-bottom {
+  bottom: 20px;
+}
+#chatra.chatra--side-left {
+  left: 20px;
+}
+#chatra.chatra--side-left.chatra--style-tab:not(.chatra--expanded) {
+  left: 10px;
+}
+#chatra.chatra--side-right {
+  right: 20px;
+}
+#chatra.chatra--side-right.chatra--style-tab:not(.chatra--expanded) {
+  right: 10px;
+}
+#chatra.chatra--side-left.chatra--expanded {
+  bottom: 20px;
+  left: 20px;
+}
+#chatra.chatra--side-right.chatra--expanded {
+  bottom: 20px;
+  right: 20px;
+}
+#chatra.chatra--pos-right {
+  right: 20px;
+}
+#chatra.chatra--pos-left {
+  left: 20px;
+}
+#chatra.chatra--pos-center {
+  left: 50%;
+}
+#chatra.chatra--pos-top.chatra--style-tab:not(.chatra--expanded) {
+  bottom: 100%;
+  margin-bottom: -20px;
+}
+#chatra.chatra--pos-top.chatra--style-round:not(.chatra--expanded) {
+  top: 20px;
+}
+#chatra.chatra--pos-bottom:not(.chatra--expanded) {
+  bottom: 20px;
+}
+#chatra.chatra--pos-middle:not(.chatra--expanded) {
+  bottom: 50%;
+}
+#chatra.chatra--mobile-widget.chatra--expanded:not(.chatra--transparent) {
+  max-width: none;
+  max-height: none;
+  top: 0 !important;
+  bottom: 0 !important;
+}
+#chatra.chatra--mobile-widget.chatra--expanded #chatra__iframe-wrapper,
+#chatra.chatra--safari.chatra--mobile-widget.chatra--expanded #chatra__iframe,
+#chatra.chatra--webkit.chatra--mobile-widget.chatra--expanded #chatra__iframe {
+  border-radius: .1px;
+}
+#chatra.chatra--mobile-widget.chatra--expanded.chatra--pos-right:not(.chatra--transparent) {
+  right: 0;
+}
+#chatra.chatra--mobile-widget.chatra--expanded.chatra--pos-left:not(.chatra--transparent) {
+  left: 0;
+}
+#chatra.chatra--mobile-widget.chatra--expanded.chatra--pos-center:not(.chatra--transparent) {
+  left: 0;
+}
+#chatra.chatra--mobile-widget.chatra--expanded.chatra--side-right:not(.chatra--transparent) {
+  right: 0;
+}
+#chatra.chatra--mobile-widget.chatra--expanded.chatra--side-left:not(.chatra--transparent) {
+  left: 0;
+}
+#chatra.chatra--transparent.chatra--expanded {
+  bottom: 10px;
+}
+#chatra.chatra--transparent.chatra--expanded #chatra__iframe-wrapper {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#chatra.chatra--side-left.chatra--transparent,
+#chatra.chatra--pos-left.chatra--transparent {
+  left: 10px;
+}
+#chatra.chatra--side-right.chatra--transparent,
+#chatra.chatra--pos-right.chatra--transparent {
+  right: 10px;
+}
+#chatra.chatra--mobile-widget.chatra--transparent {
+  max-height: 300px;
+}
+#chatra.chatra--bg-white {
+  background: #fff;
+}
+</style><title></title></head><body><p><meta name="yandex-verification" content="d1a47597a29b7003"></p> <meta name="yandex-verification" content="6bcaf5d4e9e2d987"> <meta name="google-site-verification" content="sJjaIr2A6mPzSvQgqwvZw15D3VCJBZKJYdvks7XMwDA"> <script async="" src="portfolio_files/gtm.js"></script><script>!function(a, e, c, t, r){a[t]=a[t]||[],a[t].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var n=e.getElementsByTagName(c)[0],o=e.createElement(c),s="dataLayer"!=t?"&l="+t:"";o.async=!0,o.src="https://www.googletagmanager.com/gtm.js?id="+r+s,n.parentNode.insertBefore(o,n)}(window,document,"script","dataLayer","GTM-NRBWR29");</script> <meta name="viewport" content="width=device-width"> <style>body,html{width:100%;height:100%}  .preloader-preview-area{top:50%;opacity:1;-webkit-animation-delay:-.2s;animation-delay:-.2s;-webkit-transform:translateY(100%);-ms-transform:translateY(100%);transform:translateY(100%);margin-top:10px;width:100%;height:1px;text-align:center;position:absolute}  .ball-pulse>div:nth-child(1){-webkit-animation-delay:-.36s;animation-delay:-.36s}  .ball-pulse>div{width:15px;height:15px;border-radius:100%;-webkit-animation:ball-pulse .75s infinite cubic-bezier(.2,.68,.18,1.08);animation:ball-pulse .75s infinite cubic-bezier(.2,.68,.18,1.08);animation-delay:0;margin:2px;display:inline-block}  .ball-pulse>div:nth-child(1){-webkit-animation-delay:-.36s;animation-delay:-.36s}  .ball-pulse>div:nth-child(2){-webkit-animation-delay:-.24s;animation-delay:-.24s}  .ball-pulse>div:nth-child(3){-webkit-animation-delay:-.12s;animation-delay:-.12s}  @-webkit-keyframes ball-pulse{0,- 60%,100%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}30%{opacity:.1;-webkit-transform:scale(.01);transform:scale(.01)}}  @-moz-keyframes ball-pulse{0,60%,100%{opacity:1;-moz-transform:scale(1);transform:scale(1)}30%{opacity:.1;-moz-transform:scale(.01);transform:scale(.01)}}  @-o-keyframes ball-pulse{0,60%,100%{opacity:1;-o-transform:scale(1);transform:scale(1)}30%{opacity:.1;-o-transform:scale(.01);transform:scale(.01)}}  @keyframes ball-pulse{0,60%,100%{opacity:1;-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);transform:scale(1)}30%{opacity:.1;-webkit-transform:scale(.01);-moz-transform:scale(.01);-o-transform:scale(.01);transform:scale(.01)}}</style>    <div class="b-main__wrapper" style="background-image: url()"> <div class="b-header__wrapper"> <div class="b-header__info"> <div class="b-header__info--left"> <a href="https://www.larixgroup.ru/" class="b-header__info--left-logo"> LarixGroup </a> <div class="b-header__info--left-text"> <h5 class="i-mb_10">Ландшафтно строительная компания</h5> <h5>Производство малых архитектурных форм</h5> </div> </div> <div class="b-header__info--right"> <div class="b-header__phone i-mb_25"> <div class="b-header__phone-number"></div> <div class="b-header__phone-meta"> <div class="b-header__phone-meta--city"></div> <div class="b-header__phone-meta--info"></div> </div> </div> <div class="b-header__phone i-mb_25"> <a href="tel:+74957870039" class="b-header__phone-number">+7 (495) 787 00 39</a> <div class="b-header__phone-meta"> <div class="b-header__phone-meta--city">Москва</div> <div class="b-header__phone-meta--info"><span>ПН - ВС</span> 9:00 - 18:00</div> </div> </div> </div> </div> <button class="b-btn j-modal b-header__recall" href="/recall" data-target="#recallPopup" onclick="statistic_event(&#39;obratnyj_zvonok&#39;); return true;"> перезвоните мне </button> <div class="b-header__control"> <nav class="b-header__nav"> <a class="b-header__nav-item" href="https://www.larixgroup.ru/">Главная</a> <a class="b-header__nav-item" href="https://www.larixgroup.ru/catalog">Каталог</a> <a class="b-header__nav-item" href="https://www.larixgroup.ru/malye-arhitekturnye-formy">Индивидуальные МАФ</a> <a class="b-header__nav-item" href="https://www.larixgroup.ru/about">О нас</a> <a class="b-header__nav-item" href="https://www.larixgroup.ru/contacts">Контакты</a> <a class="b-header__nav-item b-nav__item_active" href="https://www.larixgroup.ru/portfolio">Портфолио</a> </nav> <div class="b-header__control--basket"> <img id="cart-image-full" alt="shopping bag" style="display: none" src="portfolio_files/cart-full-450f2499c3ee4b7d9c4a3ef1bf326b224542340f0f0b9c30368ff01f5dae871e.png"> <img id="cart-image" alt="shopping bag" src="portfolio_files/cart-empty-4c9b0ff7b450a4ab425ae52c4b547543e957d05758c6cdd77efbe073053e14a3.png"> <div class="b-header__control--basket--info"> <div class="b-header__control--basket-title">Ваша корзина</div> <div class="b-header__control--basket-count">пусто</div> </div> </div> <div class="b-header__control--hummenu"> <img alt="menu" src="portfolio_files/hum-menu-a33e4f3e6a9947da2544f2c1349e3ade926359e9a57a1ce31a7c065365de4c2c.png" width="21" height="17"> </div> <div class="b-header__hummenu" style="display: none;"> <h2>Меню</h2> <a class="b-header__hummenu-item" href="https://www.larixgroup.ru/">Главная</a> <a class="b-header__hummenu-item" href="https://www.larixgroup.ru/catalog">Каталог</a> <a class="b-header__hummenu-item" href="https://www.larixgroup.ru/malye-arhitekturnye-formy">Индивидуальные МАФ</a> <a class="b-header__hummenu-item" href="https://www.larixgroup.ru/about">О нас</a> <a class="b-header__hummenu-item" href="https://www.larixgroup.ru/contacts">Контакты</a> <a class="b-header__hummenu-item b-nav__item_active" href="https://www.larixgroup.ru/portfolio">Портфолио</a> <img class="b-header__hummenu-close" alt="close" src="portfolio_files/close-fc7343b1ee94f10f2f009f9320c53db7289dac700c06cac19fc3ac4e10391437.png" width="17" height="17"> <div class="b-header__hummenu-footer"> <div class="b-header__hummenu-footer--phone">+7 (495) 7870039</div> <div class="b-header__hummenu-footer--mail">zakaz@larixgroup.ru</div> <p class="b-header__hummenu-footer--info"> Ежедневно с 9:00 до 19:00 </p> <p class="b-header__hummenu-footer--slogan"> Ландшафтно-строительная компания<br>Производство малых архитектурных форм </p> </div> </div> </div> </div> </div> <div class="b-mainContent"> <div class="b-container"> <div class="b-pageTitle"> <h1>Наши работы</h1> </div> <article class="b-article j-galery"> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <h1><span style="font-family:Georgia,serif;"><span style="font-size:72px;">ПОРТФОЛИО ПРОЕКТОВ</span></span></h1> <p>&nbsp;</p> <p>&nbsp;</p> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-10"> <div class="content"> <p><img alt="" src="portfolio_files/content_ландшафт2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-2"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-7"> <div class="content"> <p><img alt="" src="portfolio_files/content_КАРТА2.jpg" style="width: 749px; height: 800px;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">&nbsp;Карта объектов</span></span></span></p> <table style="align:center" valign="middle"> <tbody> <tr> <td style="width:10%"><img alt="" src="portfolio_files/content_1-2.jpg" style="width:20px; height:20px"></td> <td style="width:45%"><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">&nbsp;МЕГА Теплый стан</span></span></span></td> <td style="width:45%"><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">Калужское шоссе, 21-й километр, с1</span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_2.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">&nbsp;ЖК Внуково 2017</span></span></span></td> <td><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">Москва, ул. Омская, д. 1 – 21</span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_3.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">&nbsp;МЕГА Химки</span></span></span></td> <td><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">Московская обл., г. Химки, ул.</span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_4.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">&nbsp;ЖК Скандинавия</span></span></span></td> <td><span style="font-size:10px"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="color:#000000">Ленинградская, д. 39 стр. 5</span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_5.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">ЖК Испанские Кварталы</font></span></span></span></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">ул. Сервантеса, 1, корп. 1</font></span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_6.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">ЖК Сердце Столицы</font></span></span></span></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Москва, Шелепихинская наб. 34</font></span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_7.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">ЖК Фили Сити</font></span></span></span></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Москва, Багратионовский пр., 5, корп. 1</font></span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_8-2.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Апарт-отель Caméo Moscow Villas</font></span></span></span></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Москва, Долгоруковская 23а</font></span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_9-2.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Бизнес-парк Химки</font></span></span></span></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Московская область, Химки, Ленинградская улица, 39, стр. 6</font></span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_10.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">ЖК Сиреневый парк</font></span></span></span></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Москва, ул. Тагильская 4</font></span></span></span></td> </tr> <tr> <td><img alt="" src="portfolio_files/content_11.jpg" style="width:20px; height:20px"></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">ЖК Переделкино Ближнее – город-парк&nbsp; &nbsp; &nbsp; &nbsp;</font></span></span></span></td> <td><span style="font-size:10px"><span style="font-family:OpenSans-Light"><span style="color:#000000"><font face="OpenSans-Light">Новая Москва, д. Рассказовка, уч. 13/2, корп. 1-13</font></span></span></span></td> </tr> </tbody> </table> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">Испанские кварталы</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Выполнение работ по озеленению территории </span></span></span></p> <ul> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">вертикальная планировка,</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">подготовка почвы под посадки и посевы,</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">вспашка на тех участках, где нет насаждений,</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">рыхление среди существующих насаждений,</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">внесение органических и минеральных удобрений,</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">разбивка территории в натуре в соответствии с проектом мест под посадку деревьев из Европы, кустарников, цветов, посев газонных трав.</span></span></li> </ul> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_р3-2.jpg" style="width: 100%;"></p> </div> </div> </div> <div class="row row-2"> <div class="col col-md-6"> <div class="content"> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_333.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_555.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <p><img alt="" src="portfolio_files/content_777.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_32.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-7"> <div class="content"> <p><img alt="" src="portfolio_files/content_88-2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">«Бизнес парк» Химки</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Благоустройство береговой зоны отдыха и</span></span></span><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">&nbsp; прилегающей к ней территорий</span></span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Согласно проектному техническому заданию нашим специалистам было необходимо решить следующие задачи по сложности:</span></span></p> <ol> <li> <span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Организация функциональных зон: </span></span></span> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">- тихого уединенного отдыха (для маленьких детей и людей старшего поколения),</span></span></span></div> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">- обзорной площадки со встроенным деревянным настилом и с травяным покрытием у участка береговой зоны водоема.</span></span></span></div> </li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Организация транзитного и прогулочного пешеходного движения со скамеечками и мест видовых площадок.</span></span></span></li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Мероприятия работ по укреплению береговой линии водоема и системе отвода поверхностных вод.</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Изготовление и установка информационных щитов, малых архитектурных форм, смотровой беседки и декоративного бортового ограждения по периметру водоема.</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Проведение работ по санации существующих зеленых насаждений, высотной планировки территории и высадке различных декоративных растений с целью создания единой ландшафтной композиции.</span></span></span></div> </li> </ol> <p>&nbsp;</p> <p><span style="color:#749f40;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Концепция развития территорий городской среды, прежде всего, ориентирована на будущее и на перспективу! Мы провели детализированный анализ, внесли и согласовали конструктивные изменения проекта, составили поэтапную смету работ по строительству и благоустройству береговой линии&nbsp;и прилегающей к ней территорий. </span></span></span></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_201.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_214.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_215.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Все поставленные перед нами задачи по всем техническим требованиям наша команда выполнила качественно и в срок! Получился интересный дизайнерский проект - творческое воплощение в единое уникальное пространство прилегающих территорий для комфортной жизни.</span></span></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-5"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">Сердце Столицы</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Шелипихинская наб., 34</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Комплексное благоустройство объекта</span></span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">В этом году квартал «СЕРДЦЕ СТОЛИЦЫ» - объект премиального уровня, стал победителем конкурса Правительства Москвы «Лучший реализованный проект в области строительства». Девелопер проекта «Донстрой» - ведущий застройщик Москвы.</span></span></p> <p>&nbsp;</p> <p><span style="color:#749f40;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Наше комплексное участие при благоустройстве объекта – это получение опыта командной работы на высшем уровне. При благоустройстве были применены современные инженерные технологии в изготовление малых архитектурных форм.</span></span></span></p> <p>&nbsp;</p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Мы изготовили для пяти &nbsp;детских площадок дизайнерские маф по особому проекту. Учитывая территорию, сделали сложное резиновое покрытие под установку детских площадок и спортивных площадок, велосипедных дорожек.&nbsp;</span></span></span></p> <div><span style="color:#000000;">Мы не боимся сложных задач! Готовы работать в различных сложных условиях и главное нам доверяют ведущие строительные компании!</span></div> </div> </div> <div class="col col-md-7"> <div class="content"> <p><img alt="" src="portfolio_files/content_111111-2.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <p>&nbsp;</p> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <p>&nbsp;</p> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_204.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_206-2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_207.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-1"> <div class="content"> <p><img alt="" src="portfolio_files/content_208-2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_209.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <p>&nbsp;</p> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-7"> <div class="content"> <p><img alt="" src="portfolio_files/content_210.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">ТЦ «Мега»</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Благоустройство на территории детской площадки</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Компания ТЦ «Мега» обратилась к нам за помощью провести работы по комплексному благоустройству на территории детской площадки. На основании проекта мы спланировали задачи:</span></span></span></p> <ol> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Подготовить основание площадки для устройства резинового покрытия, включая земляные работы;</span></span></span></li> </ol> </div> <ul> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Выполнить устройство твердых дорожек;</span></span></span></li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Установить освещение;</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Спланировать и разместить участки с зелеными насаждениями по всему периметру территории, посадка деревьев и кустарников;</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Устройство газонов и цветников;</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Изготовить и установить маф из дерева по индивидуальному замыслу проекта.</span></span></span></div> </li> </ul> <p>&nbsp;</p> <p><span style="color:#749f40;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Перед выполнением строительных работ мы провели анализ существующего рельефа, составили схему вертикальной планировки, подготовили сметный расчет, предоставили поэтапный план выполнения всех работ согласно Техническому заданию.</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Компания нам доверила провести сложные строительные работы с внутренними инженерными коммуникациями - это перенос кабельной линии МОЭСК, а также проведение работ с основанием площадки, земляных работ предусматривающим сток воды, работу с освещением территории.</span></span></span></p> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_211-2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_212-2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_213-2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">В условиях сложных инженерно-геологических особенностях территории наши специалисты применили современное решение к поставленной задачи, которое не только подчеркнуло эстетичный вид детской площадки, но и качественное, безопасное решение инженерно-технических конструкций функционального назначения.</span></span></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">ЖК Скандинавия</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Масштабное выполнение благоустройства территории </span></span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Элитный объект. Выполненные работы:</span></span></p> <ul> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Изготовление на собственном производстве вазонов по дизайнерскому проекту;</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Укладка брусчаткой территории бетонной плиткой;</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Установка лавочек из лиственниц.</span></span></li> </ul> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Составление схемы вертикальной планировки, подготовлен сметный расчет. Перед тем как приступить к выполнению задания, мы предоставили Заказчику поэтапный план выполнения всех работ согласно Техническому заданию. Все работы были выполнены в срок.</span></span></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_218.jpg" style="width: 100%;"></p> </div> </div> </div> <div class="row row-2"> <div class="col col-md-6"> <div class="content"> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_221.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_222-2.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <p><img alt="" src="portfolio_files/content_223-2.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_220-2.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-7"> <div class="content"> <p><img alt="" src="portfolio_files/content_224-3.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">ТЦ «Мега Белая Дача»</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Масштабный проект по озеленению магистрального склона «Уральские горы» 1,5 га.</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Нам поручили провести организацию выполнения работ по планировке, озеленению дорожного склона и прилегающей к ней территории в близи ТЦ «Мега Белая Дача». Среди задач детальной планировки выполнения работ важное место занимает эколого-эстетическое проектирование озеленения отдельных участков объекта - высадка зеленых насаждений, приведение в соответствие рекламных конструкций. Сложность заключалась в том, что проектом предусматривался технически сложный, масштабный комплекс работ, который выполняется в определенной последовательности.</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Мы разработали и подготовили поэтапный комплекс выполнения работ:</span></span></span></p> <ul> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Разбивка территорий в натуре под посев газонных трав с использованием готового дерна; очистка территории, удаление столбов, свай, старых фундаментов, укладка сетей подземного хозяйства, водостоков, устройство системы полива и засыпка траншей;</span></span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Срезка и подсыпка земли на различных участках по проекту вертикальной планировки с использованием земли;</span></span></span></li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Подготовка почвы под посадки и посевы, вспашка на тех участках, где нет насаждений, рыхление среди существующих насаждений, внесение органических и минеральных удобрений.</span></span></span></div> </li> </ul> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_228.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_229.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_230.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Нашей главной концепцией благоустройства магистрального склона - это повышение комфорта и безопасности, улучшение внешнего облика и развитие туристической привлекательности Московской области, создание комфортных условий для передвижения и отдыха не только жителей, но и гостей столичного региона. Масштабный проект по озеленению магистрального склона «Уральские горы» 1,5 га. </span></span></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">ЖК «Мега Парнас»</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Благоустройство территории</span></span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Одним из основных принципов, является устойчивое развитие: сочетание ответственного отношения к экологии к природным ресурсам.</span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif; color:#749f40;">В этой работе мы продемонстрировали экологический подход и ответственное отношение. Следуя данным принципам, мы стремимся изменить к лучшему повседневную жизнь многих людей. Поэтапное ведение всех работ, следуя поставленным задачам, мы зарекомендовали себя как надежным партнером на долгосрочное сотрудничество с ведущим торговым домом «МЕГА»!</span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">В работе были применены:</span></span></p> <ul> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Габионы;</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Плитка Габбро-Диабаз;</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Изготовление металлических букв длиной 13 метров;</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Вазоны;</span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Озеленение и газоны.</span></span></li> </ul> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Мы осознаем свою ответственность перед обществом, а также роль, которую в ней играем.</span></span></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_235.jpg" style="width: 100%;"></p> </div> </div> </div> <div class="row row-2"> <div class="col col-md-6"> <div class="content"> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_244.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_246.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_248.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_249.jpg" style="width: 100%;"></p> </div> </div> </div> </div> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-7"> <div class="content"> <p><img alt="" src="portfolio_files/content_251.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">Каток Мега Химки</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Благоустройство катка</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Мы принимали участие при благоустройстве самого большого катка округа ХИМКИ Москва, вблизи торгового центра МЕГА Химки.</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Наши специалисты выполнили:</span></span></span></p> <ul> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Вертикальную планировку;</span></span></span></li> <li><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Установили подпорные стены;</span></span></span></li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Установили дренажные системы;</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Изготовили домики;</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Разработали рабочую документацию по электрическим разделам;</span></span></span></div> </li> <li> <div><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#000000">Выполнили электромонтажные работы при строительстве.</span></span></span></div> </li> </ul> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Работы велись строго в соответствии с жестким графиком строительства, предусматривающим окончание всех основных работ.</span></span></span></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_255.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-2"> <div class="content"> <p><img alt="" src="portfolio_files/content_256.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_258.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">Эко-парк Мещовск</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Благоустройство территории</span></span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">При строительстве была задача сохранить все насаждения и деревья. На всей территории парка — газон из настоящей травы. Стиль парка выдержан в природных цветах. А лавочки, зона воркаута, детская площадка выполнены из лиственницы и нержавеющей стали. Авторы проекта проявили внимание к мелочам, отдавая предпочтение не пластику, а природным материалам.</span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Жители и гости города такие перемены оценили. Парк, созданный в рамках нацпроекта «Формирование комфортной городской среды», сразу полюбился как молодёжи, так и старшему поколению. По словам местных, место и раньше никогда не пустовало, но теперь появилось желание приходить сюда чаще.</span></span></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_261.jpg" style="width: 100%;"></p> </div> </div> </div> <div class="row row-2"> <div class="col col-md-6"> <div class="content"> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_265.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_270.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <p><img alt="" src="portfolio_files/content_269.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_268.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-7"> <div class="content"> <p><img alt="" src="portfolio_files/content_500.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">ЖК Сиреневый парк</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Благоустройство территории</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">Комплекс находится в окружении лесных и парковых зон. В четырехстах метрах от границ жилого проекта начинается территория Национального парка «Лосиный остров». К востоку от ЖК «Сиреневый парк» расположена уютная зона отдыха Бабаевского пруда с зонами для отдыха и детскими площадками. Благоустройство территории, установка малых архитектурных форм, установка детских игровых комплексов.</span></span></span></p> <p><span style="color:#000000;"><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><img alt="" src="portfolio_files/content_281.jpg" style="width: 100%;"></span></span></span></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-4"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-3"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-5"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-4"> <div class="content"> <p><img alt="" src="portfolio_files/content_400.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_401.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-5"> <div class="content"> <p><img alt="" src="portfolio_files/content_402.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-4"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-3"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-5"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><span style="font-family:Georgia,serif;"><span style="font-size:36px;"><span style="color:#292929">ЖК&nbsp;«Переделкино Ближнее Город-парк»</span></span></span></p> <p><span style="font-size:18px;"><span style="font-family:Tahoma,Geneva,sans-serif;"><span style="color:#749f40">Благоустройство территории</span></span></span></p> <p><span style="font-size:12px;"><span style="font-family:Tahoma,Geneva,sans-serif;">«Переделкино Ближнее» — это масштабный проект города-парка, который возводится в Новой Москве девелопером «Абсолют Недвижимость». Микрорайон, разместившийся на территории Внуковского поселения, состоит из 71 разновысотных панельных и монолитных новостроек. Все корпуса отличаются яркой наружной отделкой, выполненной из высококачественных навесных панелей и разноцветной краски, и безупречными эксплуатационными характеристиками. Высота зданий в городе-парке варьируется от 9 до 25 этажей. Изготовление теневых навесов по индивидуальным чертежам. Разработка концепции.</span></span></p> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_700.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_701.jpg" style="width: 100%;"></p> </div> </div> </div> </div> </div> </div> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_601.jpg" style="width: 100%;"></p> </div> </div> </div> <div class="row row-2"> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-6"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-4"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-3"> <div class="content"> <p>&nbsp;</p> </div> </div> <div class="col col-md-5"> <div class="content"> <p>&nbsp;</p> </div> </div> </div> </div> <div class="btgrid"> <div class="row row-1"> <div class="col col-md-6"> <div class="content"> <p><img alt="" src="portfolio_files/content_805.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_806.jpg" style="width: 100%;"></p> </div> </div> <div class="col col-md-3"> <div class="content"> <p><img alt="" src="portfolio_files/content_807.jpg" style="width: 100%;"></p> </div> </div> </div> </div> <p>&nbsp;</p> </article> <div class="b-modal__wrap"> <div class="b-modal b-modal_wide"> <div class="b-modal__close"></div> <div class="b-modal__title lp-modal__title"> </div> <div class="b-modal__content"> <div class="owl-carousel owl-theme owl-loaded owl-drag"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;"><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_ландшафт2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_КАРТА2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_1-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_3.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_4.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_5.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_6.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_7.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_8-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_9-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_10.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_11.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_р3-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_333.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_555.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_777.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_32.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_88-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_201.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_214.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_215.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_111111-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_204.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_206-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_207.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_208-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_209.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_210.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_211-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_212-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_213-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_218.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_221.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_222-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_223-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_220-2.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_224-3.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_228.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_229.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_230.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_235.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_244.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_246.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_248.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_249.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_251.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_255.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_256.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_258.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_261.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_265.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_270.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_269.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_268.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_500.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_281.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_400.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_401.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_402.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_700.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_701.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_601.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_805.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_806.jpg"></div></div><div class="owl-item"><div class="item"><img style="width: 100%; height: auto;" src="portfolio_files/content_807.jpg"></div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div> <div class="lp-modal__price"></div> <div class="b-modal__carousel-prev"> <i class="fa fa-chevron-left" aria-hidden="true"></i> </div> <div class="b-modal__carousel-next"> <i class="fa fa-chevron-right" aria-hidden="true"></i> </div> </div> </div> </div> </div> </div> <footer class="b-main-footer"> <div class="b-main-footer__contacts"> <h3>Larix Group</h3> <a href="tel:+7 (495) 7870039" class="b-main-footer__contacts--number">+7 (495) 7870039</a> <a href="mailto:zakaz@larixgroup.ru" class="b-main-footer__contacts--mail">zakaz@larixgroup.ru</a> <div class="b-main-footer__contacts--social"> <a href="https://www.larixgroup.ru/portfolio#" class="vk" target="_blank"> <img alt="" src="portfolio_files/icn-vk-3103762d0a42a6d1d3809155df0df27e063ddb543521836ca635adb82c959c8b.png"> </a> <a href="https://www.larixgroup.ru/portfolio#" class="fb" target="_blank"> <img alt="" src="portfolio_files/icn-facebook-logo-5d0e5e97c16a862c789fedb3bf304a25944cda48337685b5df9c607d4b33e54e.png"> </a> <a href="https://www.larixgroup.ru/portfolio#" class="yt" target="_blank"> <img alt="" src="portfolio_files/icn-youtube-2386ad1cb2000ef8802bceff8a668735c7f3e255a750d2b1b4676288ca46a11e.png"> </a> </div> </div> <div class="b-main-footer__menu"> <div> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/ozelenenie">Озеленение</a> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/dostavka">Доставка и оплата</a> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/o-kompanii">О компании</a> </div> <div> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/blagoustroystvo">Благоустройство</a> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/sborka-montag">Сборка и монтаж</a> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/job">Вакансии</a> </div> <div> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/proektirovanie">Проектирование</a> <a class="b-main-footer__menu-item" href="https://www.larixgroup.ru/politika">Политика конфиденциальности</a> </div> </div> <div class="b-main-footer__location"> <div class="msk"> <h6>Москва, Россия</h6> <p> Большая филевская 33 Пн-Пт, 09:00-18:00 </p> </div> </div> </footer> <div class="b-modal__wrap"> <div class="b-modal" id="recallPopup"> <div class="b-modal__close"></div> <div class="b-modal__title"> заказать <span>звонок</span> </div> <div class="b-modal__content"> <form class="b-form " targ="ZakazZvonka" id="recallForm2549" onsubmit="create_recall(&#39;recallForm2549&#39;);statistic_event(&#39;ZakazZvonka&#39;);" action="javascript:void(0);" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="iMGzcAbEhR3opbJJbqDAQvQ/ixoq5mkYKd3DdJ83Ce7iIUrpbirE9q5umjT0yo4ASZpuVi2E0K3C9aMxtTj/PA=="><input value="3" type="hidden" name="recall[site_id]" id="recall_site_id"> <div class="b-form__row"> <input class="b-form__control" required="required" placeholder="Ваше имя" name="recall[name]" id="recall_name"> </div> <div class="b-form__row"> <input class="b-form__control j-telMask" required="required" placeholder="Ваш телефон" type="tel" name="recall[phone]" id="recall_phone"> </div> <div class="b-form__row flex"> <input name="feedback[agree]" type="hidden" value="0"><input class="b-form__control agree_check" required="required" type="checkbox" value="1" name="feedback[agree]" id="feedback_agree"> <label class="b-form__control" for="recall_agree"> Я согласен с <a href="https://www.larixgroup.ru/politika">условиями</a> </label> </div> <div class="b-form__row i-text_center"> <input type="submit" name="commit" value="отправить" class="b-btn" data-disable-with="отправить"> </div> </form> </div> </div> </div> <div class="b-modal__wrap"> <div class="b-modal b-modal_wide" id="feedbackPopup"> <div class="b-modal__close"></div> <div class="b-modal__title"> Обратная <span>связь</span> </div> <div class="b-modal__content"> <form class="b-form feedbackFormPopup" id="feedback" onsubmit="create_feedback(&#39;feedback&#39;)" action="javascript:void(0);" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="lyvLCK5GijRS6LZpKLf+Pb6oS9NvFeuupGehsuf7xK39yzKRxqjL3xQjnhSy3bB/Aw2un2h3UhtPT8H3zfQyfw=="> <div class="b-modal__row"> <div class="b-modal__col"> <div class="b-form__row"> <input class="b-form__control" id="feedbackUserName" placeholder="Ваше имя" name="feedback[name]" required=""> </div> <div class="b-form__row"> <select name="feedback[question]" class="b-form__control" id="feedbackType"> <option value="Заказ">Заказ</option> </select> </div> <div class="b-form__row"> <textarea name="feedback[message]" class="b-form__control b-form__control_area" placeholder="Ваш комментарий" id="feedbackText" required=""></textarea> </div> </div> <div class="b-modal__col"> <div class="b-form__row"> <input class="b-form__control" type="email" id="feedbackUserEmail" placeholder="Ваше Email" name="feedback[email]" required=""> </div> <div class="b-form__row"> <select name="feedback[city]" class="b-form__control" id="feedbackCity"> <option value="Ленинградская область">Ленинградская область</option> <option value="Москва">Москва</option> <option value="Московская область">Московская область</option> <option value="Санкт-Петербург">Санкт-Петербург</option> </select> </div> <div class="b-form__row"> <div class="b-capcha b-captcha-place"> <img src="./portfolio_files/&#39;simple_captcha.jpg&#39;" alt="captcha" class="b-capcha__img"><input value="28debe9b5235ec553eabeeb5245e9dde32421309" type="hidden" name="feedback[captcha_key]" id="feedback_captcha_key"> <a href="javascript:void(0);" title="Обновить картинку" class="b-capcha__refresh"></a> <div class="b-capcha__control"> <input autocomplete="off" required="required" placeholder="Введите символы с картинки" value="" name="feedback[captcha]" id="feedback_captcha" class="b-form__control"> </div> </div> <div id="feedback_captcha"><div style="color:red;" id="feedback_captcha-error"></div></div> </div> </div> </div> <div class="b-form__row i-text_center"> <button type="submit" class="b-btn" id="feedbackFormSubmit">отправить</button> </div> <input value="3" type="hidden" name="feedback[site_id]" id="feedback_site_id"> </form> </div> </div> </div> <div class="b-modal__wrap"> <div class="b-modal b-modal_wide" id="catalogPopup"> <div class="b-modal__close"></div> <div class="b-modal__title"> Отправить заявку </div> <div class="b-modal__content"> <form class="b-form feedbackFormPopup" id="catalogForm" onsubmit="create_feedback(&#39;catalogForm&#39;)" action="javascript:void(0);" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="VYcYMCOGagLiTKj7c27IxFKpEfS+hqduhMpqtNt25Gw/Z+GpS2gr6aSHgIbpBIaG7wz0uLnkHttv4grx8XkSvg=="> <div class="b-modal__row"> <div class="b-modal__col"> <div class="b-form__row"> <input class="b-form__control" id="feedbackUserName" placeholder="Ваше имя" name="feedback[name]" required=""> </div> <div class="b-form__row"> <input class="b-form__control j-telMask" type="tel" id="feedbackUserPhone" placeholder="Ваш телефон" name="feedback[phone]" required=""> </div> <div style="display: none"> <input data-bind="value: $root.feedback_data" id="feedbackData" name="feedback[data]" hidden="" readonly=""> </div> <div class="b-form__row"> <textarea name="feedback[message]" class="b-form__control b-form__control_area" placeholder="Ваш комментарий" id="feedbackText" required=""></textarea> </div> </div> <div class="b-modal__col"> <div class="b-form__row"> <input class="b-form__control" type="email" id="feedbackUserEmail" placeholder="Ваше Email" name="feedback[email]" required=""> </div> <div class="b-form__row"> <select name="feedback[city]" class="b-form__control" id="feedbackCity"> <option value="Ленинградская область">Ленинградская область</option> <option value="Москва">Москва</option> <option value="Московская область">Московская область</option> <option value="Санкт-Петербург">Санкт-Петербург</option> </select> </div> <div class="b-form__row"> <div class="b-capcha b-captcha-place"> <img src="./portfolio_files/&#39;simple_captcha.jpg&#39;" alt="captcha" class="b-capcha__img"><input value="28debe9b5235ec553eabeeb5245e9dde32421309" type="hidden" name="feedback[captcha_key]" id="feedback_captcha_key"> <a href="javascript:void(0);" title="Обновить картинку" class="b-capcha__refresh"></a> <div class="b-capcha__control"> <input autocomplete="off" required="required" placeholder="Введите символы с картинки" value="" name="feedback[captcha]" id="feedback_captcha"> </div> </div> <div id="catalogForm_captcha"><div style="color:red;" id="catalogForm_captcha-error"></div></div> </div> </div> </div> <div class="b-form__row i-text_center"> <button type="submit" class="b-btn" id="feedbackFormSubmit">отправить</button> </div> <input value="3" type="hidden" name="feedback[site_id]" id="feedback_site_id"> </form> </div> </div> </div> <div class="cookies-eu js-cookies-eu"> <span class="cookies-eu-content-holder">Cookies помогают нам предоставлять наши услуги. Используя наши услуги, вы соглашаетесь с использованием наших cookies.</span> <span class="cookies-eu-button-holder"> <button class="cookies-eu-ok js-cookies-eu-ok"> OK </button> </span> </div> <div class="b-scrolltop"> <span>Наверх</span> </div> <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "ООО &quot;ЛАРИКС&quot;",
+    "url" : "http://www.larixgroup.ru/",
+    "department": [
+        {
+          "@context": "http://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ООО &quot;ЛАРИКС&quot;",
+          "url" : "http://www.larixgroup.ru/",
+          "address" : {
+            "@type": "PostalAddress",
+            "addressLocality": "Москва, Россия",
+            "postalCode": "121433",
+            "streetAddress": "Большая филевская 33",
+            "hoursAvailable": "Пн-Пт, 09:00-18:00",
+            "url" : "http://www.larixgroup.ru/"
+          },
+          "contactPoint" : [
+              {
+                "@type" : "ContactPoint",
+                "contactType": "Отдел продаж",
+                "telephone": "+7 (495) 7870039",
+                "email": "zakaz@larixgroup.ru"
+              } 
+          ]
+        }
+    ]
+  }
+  </script> <link rel="stylesheet" media="all" href="portfolio_files/application-c6777b08c5d7f846e1473f1d2a36b2c2cb7cba29b32853737b6ec703114d63ff.css"> <link href="portfolio_files/css" rel="stylesheet"> <link href="portfolio_files/font-awesome.min.css" rel="stylesheet"> <link href="portfolio_files/css(1)" rel="stylesheet"> <script src="portfolio_files/application-acbfa275f1da1cef915a9e0a37c95b83682fa8b484f9bfb4ed391c882ce37b87.js"></script>­<style>@font-face {font-family:"font";src:url("https://")}@media (touch-enabled),(-webkit-touch-enabled),(-moz-touch-enabled),(-o-touch-enabled),(-ms-touch-enabled),(modernizr){#touch{top:9px;position:absolute}}@media (transform-3d),(-webkit-transform-3d),(-moz-transform-3d),(-o-transform-3d),(-ms-transform-3d),(modernizr){#csstransforms3d{left:9px;position:absolute;height:3px;}}#generatedcontent:after{content:":)";visibility:hidden}</style> <script>function create_recall(a){$.ajax({url:"/recalls",data:new FormData(document.getElementById(a)),cache:!1,type:"POST",contentType:!1,processData:!1,beforeSend:function(a){a.setRequestHeader("X-CSRF-Token",$('meta[name="csrf-token"]').attr("content"))},success:function(e){"ok"==e?($.arcticmodal("close"),$("#"+a)[0].reset(),statistic_event("otpravit_obratnyj_zvonok"),alert("\u0417\u0430\u044f\u0432\u043a\u0430 \u043f\u0440\u0438\u043d\u044f\u0442\u0430")):alert("error")},error:function(a){alert("error")}})}function captcha_reload(){$.ajax({url:"/render_captcha",cache:!1,type:"GET",success:function(a){captcha_configure(a)}})}function captcha_configure(a){a.length&&$(".b-captcha-place").each(function(){$(this).html(a)}),$(".b-capcha > img").attr("class","b-capcha__img"),$("#feedback_captcha").attr("class","b-form__control"),$(".b-capcha__refresh").unbind("click",captcha_reload).bind("click",captcha_reload)}function create_feedback(a){$.ajax({url:"/feedbacks",data:new FormData(document.getElementById(a)),cache:!1,type:"POST",contentType:!1,processData:!1,beforeSend:function(a){a.setRequestHeader("X-CSRF-Token",$('meta[name="csrf-token"]').attr("content"))},success:function(e){"ok"==e?($.arcticmodal("close"),captcha_configure(""),$("#"+a)[0].reset(),statistic_event("otpravit_obratnaya_svyaz"),alert("\u0417\u0430\u044f\u0432\u043a\u0430 \u043f\u0440\u0438\u043d\u044f\u0442\u0430")):($("#"+a+"_captcha").addClass("error"),$("#"+a+"_captcha-error").length>0?$("#"+a+"_captcha-error").text(e).show():(e='<label style="display: inline;" for="'+("#"+a+"_captcha")+'" class="error" id="'+("#"+a+"_captcha-error")+'">'+e.replace(/\r?\n|\\n/,"<br />")+"</label>",$("#"+a+"_captcha").after(e)))},error:function(a){alert("error: "+a)}})}function captcha_reload(){$.ajax({url:"/render_captcha",cache:!1,type:"GET",success:function(a){captcha_configure(a)}})}function captcha_configure(a){a.length&&$(".b-captcha-place").each(function(){$(this).html(a)}),$(".b-capcha > img").attr("class","b-capcha__img"),$("#feedback_captcha").attr("class","b-form__control"),$(".b-capcha__refresh").unbind("click",captcha_reload).bind("click",captcha_reload)}function create_feedback(a){$.ajax({url:"/feedbacks",data:new FormData(document.getElementById(a)),cache:!1,type:"POST",contentType:!1,processData:!1,beforeSend:function(a){a.setRequestHeader("X-CSRF-Token",$('meta[name="csrf-token"]').attr("content"))},success:function(e){"ok"==e?($.arcticmodal("close"),captcha_configure(""),$("#"+a)[0].reset(),statistic_event("otpravit_obratnaya_svyaz"),alert("\u0417\u0430\u044f\u0432\u043a\u0430 \u043f\u0440\u0438\u043d\u044f\u0442\u0430")):($("#"+a+"_captcha").addClass("error"),$("#"+a+"_captcha-error").length>0?$("#"+a+"_captcha-error").text(e).show():(e='<label style="display: inline;" for="'+("#"+a+"_captcha")+'" class="error" id="'+("#"+a+"_captcha-error")+'">'+e.replace(/\r?\n|\\n/,"<br />")+"</label>",$("#"+a+"_captcha").after(e)))},error:function(a){alert("error: "+a)}})}$(".hamburger").click(function(){"none"==$(".b-horizont-nav").eq(0).css("display")?$(".b-horizont-nav").stop(!0).fadeIn(200):$(".b-horizont-nav").stop(!0).fadeOut(200)}),$(document).ready(function(){captcha_configure("")}),$(document).ready(function(){captcha_configure("")});</script>
+<script type="text/javascript" id="">(function(a,e,f,g,b,c,d){a[b]=a[b]||function(){(a[b].a=a[b].a||[]).push(arguments)};a[b].l=1*new Date;c=e.createElement(f);d=e.getElementsByTagName(f)[0];c.async=1;c.src=g;d.parentNode.insertBefore(c,d)})(window,document,"script","https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js","ym");ym(32466315,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0,trackHash:!0});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/32466315" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript" id="">window.ChatraSetup={colors:{buttonText:"#ffffff",buttonBg:"#56A65B"}};window.ChatraSetup={buttonPosition:"br"};</script>
+
+
+<script type="text/javascript" id="">(function(c,a,b){a.ChatraID="ZFJkSwwwdNj5ZPsDn";var d=c.createElement("script");a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)};d.async=!0;d.src="https://call.chatra.io/chatra.js";c.head&&c.head.appendChild(d);window.ChatraSetup={colors:{buttonText:"#ffffff",buttonBg:"#56A65B"}}})(document,window,"Chatra");</script>
+<script type="text/javascript" id="" src="portfolio_files/3c74bdc905d19d19035a"></script><div class="chatra--webkit chatra--style-tab chatra--side-bottom chatra--pos-right chatra--visible" id="chatra" data-turbolinks-permanent="" style="width: 149px; height: 40px; transform: none; z-index: 9999;"><div id="chatra__iframe-wrapper"><iframe frameborder="0" id="chatra__iframe" allowtransparency="true" title="Chatra live chat" allow="autoplay" src="portfolio_files/saved_resource.html" style="width: 380px; height: 600px; position: absolute;"></iframe></div></div></body></html>

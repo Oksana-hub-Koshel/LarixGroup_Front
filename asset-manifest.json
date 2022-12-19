@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/LarixGroup_Front/static/css/main.e028952b.css",
+    "main.js": "/LarixGroup_Front/static/js/main.ec316bd5.js",
+    "static/media/IMG_0564.jpeg": "/LarixGroup_Front/static/media/IMG_0564.3976c4c27c2d17e342d5.jpeg",
+    "static/media/main-bckgr.jpeg": "/LarixGroup_Front/static/media/main-bckgr.cf5fa99558e375a4ca35.jpeg",
+    "static/media/back.png": "/LarixGroup_Front/static/media/back.34173c56364a95cd291b.png",
+    "static/media/urban-awards.png": "/LarixGroup_Front/static/media/urban-awards.52492d9a0a50247c7fb2.png",
+    "static/media/slick.svg": "/LarixGroup_Front/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/LarixGroup_Front/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/LarixGroup_Front/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/LarixGroup_Front/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/LarixGroup_Front/index.html",
+    "static/media/search.svg": "/LarixGroup_Front/static/media/search.46fa68cb5fb7669837be.svg",
+    "main.e028952b.css.map": "/LarixGroup_Front/static/css/main.e028952b.css.map",
+    "main.ec316bd5.js.map": "/LarixGroup_Front/static/js/main.ec316bd5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e028952b.css",
+    "static/js/main.ec316bd5.js"
+  ]
+}
