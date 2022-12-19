@@ -1,0 +1,297 @@
+.container {
+    background: #212121;
+    width: 100%;
+    padding: 8vw 0 10vw;
+    position: relative;
+
+}
+
+.text_wrapp {
+    display: flex;
+    flex-direction: column;
+}
+
+.pencil_img {
+    max-width: 100% !important;
+    margin: 0 auto;
+    display: block;
+    border-radius: 0.5vw;
+    position: absolute;
+    top: 20vw;
+    right: 0;
+    width: 18vw;
+    height: 20vw;
+}
+
+.first_center {
+    width: 45%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 2.5vw;
+    line-height: 100%;
+    color: #ffffff;
+}
+
+.text {
+    margin-bottom: 1.2vw;
+    margin-top: 5vw;
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 0.9vw;
+    line-height: 1.7;
+    color: #ffffff;
+}
+
+.text2 {
+    margin-bottom: 1.2vw;
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 0.9vw;
+    line-height: 1.7;
+    color: #ffffff;
+}
+
+.project_about {
+    position: absolute;
+    left: 8vw;
+    width: 15vw;
+    top: 8vw;
+    color: #fafafa;
+    font-size: 0.9vw;
+    line-height: 1.2;
+}
+
+.list_line {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 9vw;
+}
+
+.list_item {
+    border-radius: 0.8vw;
+    border: 0.2vw dashed rgba(255, 255, 255, 0.15);
+    padding: 3vw 2.5vw;
+    width: 19vw;
+}
+
+.list_item img {
+    max-width: 100% !important;
+    margin: 0px auto;
+    display: block;
+    border-radius: 0.2vw;
+}
+
+.descrip1 {
+    display: block;
+    margin-top: 3vw;
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 1.2vw;
+    line-height: 1.7;
+    color: #ffffff;
+}
+
+.descrip2 {
+    display: block;
+    margin-top: 0.9vw;
+    font-size: 0.9vw;
+    line-height: 1.5;
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    color: #fafafa;
+}
+
+.low_block {
+    width: 45%;
+    margin: 0 auto;
+    margin-top: 8vw;
+}
+
+.low_block p {
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 1vw;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 1.2vw;
+}
+
+@media screen and (min-width: 1280px) {
+    container {
+        background: #212121;
+        width: 100%;
+        padding: 90px 0 120px;
+        position: relative;
+
+    }
+
+    .text_wrapp {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pencil_img {
+        max-width: 100% !important;
+        margin: 0 auto;
+        display: block;
+        border-radius: 5px;
+        position: absolute;
+        top: 222px;
+        right: 0;
+        width: 300px;
+        height: 280px;
+    }
+
+    .first_center {
+        width: 37%;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+        font-size: 50px;
+        line-height: 100%;
+        color: #ffffff;
+    }
+
+    .text {
+        margin-bottom: 20px;
+        margin-top: 60px;
+        font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        line-height: 1.7;
+        color: #ffffff;
+    }
+
+    .text2 {
+        margin-bottom: 20px;
+        font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        line-height: 1.7;
+        color: #ffffff;
+    }
+
+    .project_about {
+        position: absolute;
+        left: 90px;
+        width: 170px;
+        top: 90px;
+        color: #fafafa;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    .list_line {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 110px;
+    }
+
+    .list_item {
+        border-radius: 8px;
+        border: 1px dashed rgba(255, 255, 255, 0.15);
+        padding: 40px 35px;
+        width: 294px;
+    }
+
+    .list_item img {
+        max-width: 100% !important;
+        margin: 0px auto;
+        display: block;
+        border-radius: 5px;
+    }
+
+    .descrip1 {
+        display: block;
+        margin-top: 40px;
+        font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        line-height: 1.7;
+        color: #ffffff;
+    }
+
+    .descrip2 {
+        display: block;
+        margin-top: 12px;
+        font-size: 12px;
+        line-height: 1.5;
+        font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+        color: #fafafa;
+    }
+
+    .low_block {
+        width: 37%;
+        margin: 0 auto;
+        margin-top: 90px;
+    }
+
+    .low_block p {
+        font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .project_about {
+        display: none;
+    }
+
+    .first_center {
+        width: 70%;
+        margin-left: 5vw;
+    }
+
+    .logo {
+        font-size: 6vw;
+
+    }
+
+    .text {
+        font-size: 3vw;
+        text-align: justify;
+    }
+
+    .text2 {
+        font-size: 3vw;
+        text-align: justify;
+    }
+
+    .pencil_img {
+        width: 20vw;
+        height: 26vw;
+        top: 10vw
+    }
+
+    .low_block p {
+        font-size: 3vw;
+    }
+
+    .low_block {
+        width: 90%;
+    }
+
+    .list_item {
+        width: 24vw;
+    }
+
+    .list_item img {
+        width: 7vw;
+        height: 7vw
+
+    }
+
+    .descrip1 {
+        font-size: 2vw;
+        text-align: center;
+    }
+
+    .descrip2 {
+        font-size: 1.8vw;
+        text-align: center;
+    }
+
+
+}

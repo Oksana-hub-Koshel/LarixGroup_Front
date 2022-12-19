@@ -1,0 +1,226 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacts_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20vw;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
+}
+
+.title {
+    margin: 4vw 0;
+    text-align: center;
+
+
+}
+
+.title h1 {
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    font-size: 3.5vw;
+    text-transform: uppercase;
+    color: #3fa7a6;
+    font-weight: normal;
+
+}
+
+.title p {
+    text-transform: uppercase;
+    margin-top: 1vw;
+    font-size: 1.5vw;
+}
+
+.contacts_title {
+    margin-bottom: 2vw;
+    text-transform: uppercase;
+    font-size: 2vw;
+}
+
+.right_side {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    border-left: 1px solid #d5d5d5;
+}
+
+.right_side p {
+    margin-left: 2vw;
+    font-size: 1.5vw;
+}
+
+.work_text {
+    color: gray;
+}
+
+.number_block a {
+    font-size: 2.2vw;
+    color: #434343;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.number_block {
+    margin-bottom: 2vw;
+}
+
+
+.order_call {
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: #1d1d1d;
+    text-transform: uppercase;
+    font-size: 1.2vw;
+
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacts_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 200px;
+        margin-top: 40px;
+        margin-bottom: 200px;
+    }
+
+    .title {
+        margin: 40px 0;
+        text-align: center;
+
+    }
+
+    .title h1 {
+        font-family: "PT Sans", Arial, Helvetica, sans-serif;
+        font-size: 36px;
+        text-transform: uppercase;
+        color: #3fa7a6;
+        font-weight: normal;
+
+
+    }
+
+    .title p {
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    .contacts_title {
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+
+    .right_side {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-left: 1px solid #d5d5d5;
+    }
+
+    .right_side p {
+        margin-left: 30px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    .work_text {
+        color: gray;
+    }
+
+    .number_block a {
+        font-size: 24px;
+        color: #434343;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .number_block {
+        margin-bottom: 30px;
+    }
+
+
+    .order_call {
+        background: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        color: #1d1d1d;
+        text-transform: uppercase;
+        font-size: 14px;
+
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .contacts_container {
+        display: flex;
+        flex-direction: column;
+        gap: 7vw;
+        margin-bottom: 10vw;
+    }
+
+    .title h1 {
+        font-size: 7vw;
+        margin-top: 3vw;
+    }
+
+    .title p {
+        font-size: 4vw;
+    }
+
+    .contacts_title {
+        font-size: 5vw;
+        margin-top: 2vw;
+        margin-bottom: 0vw;
+    }
+
+    .number_block a {
+        font-size:4vw;
+
+
+    }
+
+    .number_block {
+        margin-top: 4vw;
+        margin-bottom: 3vw;
+        text-align: center;
+    }
+    .contacts{
+        text-align: center;
+    }
+
+    .order_call {
+        font-size: 4vw;
+        margin-top: 2vw;
+
+    }
+.right_side{
+    margin-top:  4vw;
+}
+    .right_side p {
+        font-size: 3vw;
+        margin-top: 1vw;
+    }
+    .left_side{
+        display: flex;
+        flex-direction: column;
+        gap:2vw
+    }
+}

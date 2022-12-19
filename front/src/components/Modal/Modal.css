@@ -1,0 +1,299 @@
+.modal {
+    height: 130vw;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: -40vw;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    z-index: 9999;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal_content {
+    padding: 0.3vw;
+    background-color: white;
+    width: 30vw;
+    height: 27vw;
+    transform: scale(0.5);
+    transition: 0.4s all;
+}
+
+.modal_content.active {
+    transform: scale(1);
+}
+
+.text_modal {
+    font-size: 2vw;
+    color: #3fa7a6;
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-top: 2vw;
+}
+
+.text_modal span {
+    font-weight: 550;
+}
+
+.content_window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inp_field {
+    margin-top: 0.5vw;
+    width: 17vw;
+    background-color: #e1f4e1;
+    height: 3vw;
+    color: black;
+    font-size: 1.5vw;
+}
+
+.inp_field::placeholder {
+    font-size: 1.2vw;
+}
+
+.inp_input {
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6vw;
+}
+
+.conditions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+    align-items: center;
+    color: black;
+    font-size: 1.3vw;
+    margin-top: 2vw;
+}
+
+.conditions input {
+    height: 1.5vw;
+    width: 1.5vw;
+}
+
+.send {
+    color: black;
+    font-size: 1.5vw;
+    margin-top: 2vw;
+    background-color: white;
+}
+
+input::placeholder {
+    padding-left: 0.5vw;
+    font-size: 1.5vw;
+}
+
+.cross {
+    color: white;
+    width: 1.5vw;
+    height: 1.5vw;
+    background-color: darkgrey;
+}
+
+.cross_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+input {
+    padding-left: 0.5vw;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width: 1280px) {
+    .inp_field {
+        font-size: 20px;
+    }
+
+    .inp_field::placeholder {
+        font-size: 20px;
+    }
+
+    .modal {
+        height: 1500px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        position: fixed;
+        top: -400px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.5s;
+        z-index: 9999;
+    }
+
+    .modal_content {
+        padding: 0.3vw;
+        background-color: white;
+        width: 430px;
+        height: 350px;
+        transform: scale(0.5);
+        transition: 0.4s all;
+    }
+
+    .text_modal {
+        font-size: 30px;
+    }
+
+    .inp_field {
+        margin-top: 10px;
+        width: 260px;
+        background-color: #e1f4e1;
+        height: 35px;
+        color: black;
+        font-size: 20px;
+    }
+
+    .inp_input {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .conditions {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5vw;
+        align-items: center;
+        color: black;
+        font-size: 18px;
+        margin-top: 35px;
+    }
+
+    .conditions input {
+        height: 18px;
+        width: 19px;
+    }
+
+    .send {
+        color: black;
+        font-size: 18px;
+        margin-top: 30px;
+        background-color: white;
+    }
+
+    input::placeholder {
+        padding-left: 10px;
+    }
+
+    .cross {
+        color: white;
+        width: 30px;
+        height: 30px;
+        background-color: darkgrey;
+    }
+
+    .cross_block {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    input {
+        padding-left: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .modal {
+        height: 130vw;
+        width: 100vw;
+        top: 0vw;
+        left: 0;
+        right: 20vw;
+    }
+
+    .modal_content {
+        padding: 0.3vw;
+        width: 90vw;
+        height: 70vw;
+    }
+
+    .text_modal {
+        font-size: 7vw;
+        margin-top: 6vw;
+        font-weight: 400;
+    }
+
+    .inp_field {
+        margin-top: 3vw;
+        width: 60vw;
+        height: 8vw;
+        font-size: 3vw;
+    }
+
+    .inp_field::placeholder {
+        font-size: 4vw;
+    }
+
+    .conditions {
+        gap: 2vw;
+        font-size: 3.5vw;
+        margin-top: 5vw;
+    }
+
+    .conditions input {
+        height: 3vw;
+        width: 3vw;
+    }
+
+    .send {
+        font-size: 4vw;
+        margin-top: 5vw;
+    }
+
+    input::placeholder {
+        padding-left: 1.5vw;
+
+    }
+
+    .cross {
+        width: 5vw;
+        height: 5vw;
+    }
+}

@@ -1,0 +1,140 @@
+.container {
+    width: 100%;
+    color: #212121;
+    line-height: 1.429em;
+}
+
+.adventure {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    padding-top: 7vw;
+    padding-bottom: 6.5vw;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+
+}
+
+.advent_items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 16vw;
+    color: #212121;
+    line-height: 1.5;
+
+}
+
+.advent_image {
+    opacity: 0.5;
+    height: 5vw;
+    margin-bottom: 3.5vw;
+}
+
+.advent_image img {
+    max-width: 100% !important;
+    margin: 0px auto;
+    display: block;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.advent_title {
+    margin-bottom: 1vw;
+    font-size: 1.5vw;
+    font-weight: 500;
+}
+
+.advent_descrip {
+    font-size: 1vw;
+}
+
+@media screen and (min-width: 1280px) {
+
+    .container {
+        width: 100%;
+        color: #212121;
+        line-height: 1.429em;
+    }
+
+    .adventure {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        height: auto;
+        padding-top: 90px;
+        padding-bottom: 80px;
+        flex-wrap: wrap;
+        width: 100%;
+
+    }
+
+    .advent_items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        width: 250px;
+        color: #212121;
+        line-height: 1.5;
+
+    }
+
+    .advent_image {
+        opacity: 0.5;
+        height: 65px;
+        margin-bottom: 40px;
+    }
+
+    .advent_image img {
+        max-width: 100% !important;
+        margin: 0px auto;
+        display: block;
+        border-radius: 5px;
+        height: 100%;
+    }
+
+    .advent_title {
+        margin-bottom: 15px;
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    .advent_descrip {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .adventure {
+        display: flex;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        gap: 2vw;
+        row-gap: 5vw;
+    }
+
+    .advent_items {
+        width: 47%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2vw;
+        align-items: flex-start;
+    }
+
+    .advent_image {
+        height: 18vw;
+        width: 18vw;
+    }
+
+    .advent_title {
+        font-size: 4vw;
+    }
+
+    .advent_descrip {
+        font-size: 2.5vw;
+    }
+}

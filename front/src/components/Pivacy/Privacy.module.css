@@ -1,0 +1,75 @@
+.all {
+    margin: 0 auto;
+    display: flex;
+    width: 86%;
+    flex-direction: column;
+}
+
+.all h1 {
+    padding: 3.5vw 0vw;
+    text-align: center;
+    font: 100 3vw/1em 'PT Sans', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #3fa7a6;
+}
+
+.all p {
+    margin-bottom: 2vw;
+    color: #212121;
+    line-height: 1.429em;
+    font-size: 1.2vw;
+    text-align: justify;
+}
+
+.all h4 {
+    padding-bottom: 2vw;
+    font: inherit;
+    text-align: justify;
+    color: #212121;
+    font-size: 1.1vw;
+}
+
+@media screen and (min-width: 1280px) {
+    .all {
+        width: 1200px;
+    }
+
+    .all h1 {
+        padding: 50px 0px;
+        font-size: 36px;
+
+    }
+
+    .all p {
+        margin-bottom: 30px;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .all h4 {
+        padding-bottom: 30px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .all h1 {
+        padding: 5vw 0px;
+        font-size: 4.5vw
+
+    }
+
+    .all p {
+        width: 98%;
+        margin-bottom: 2.5vw;
+        font-size: 2vw;
+        text-align: justify;
+    }
+
+    .all h4 {
+        padding-bottom: 3vw;
+        font-size: 3vw;
+        font-weight: bolder;
+    }
+}

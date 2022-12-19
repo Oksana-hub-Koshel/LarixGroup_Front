@@ -1,0 +1,548 @@
+.container {
+    position: relative;
+    padding: 11vw 6vw 8vw;
+    background: #fcfcfd;
+    width: 100%;
+}
+
+.title {
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 4vw;
+    line-height: 100%;
+}
+
+.text {
+    margin-bottom: 2vw;
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    line-height: 2;
+    margin-top: 2vw;
+}
+
+.image_soil {
+    max-width: 100% !important;
+    margin: 0px auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.img1 {
+    position: absolute;
+    top: 100px;
+    right: 7vw;
+    max-width: 100% !important;
+    margin: 0px auto;
+    display: block;
+    border-radius: 5px;
+    width: 10vw;
+    height: 10vw;
+}
+
+.img2 {
+    position: absolute;
+    top: 40vw;
+    left: 9vw;
+    max-width: 100% !important;
+    margin: 0px auto;
+    display: block;
+    border-radius: 5px;
+    width: 8vw;
+    height: 10vw;
+}
+
+
+.img3 {
+    max-width: 100% !important;
+    margin: 0px auto;
+    display: block;
+    border-radius: 5px;
+    position: absolute;
+    top: 60vw;
+    right: 16vw;
+    width: 10vw;
+    height: 10vw;
+}
+
+/*forma */
+.container_form {
+    width: 90vw;
+    margin: 0 auto;
+    border-radius: 1vw;
+}
+
+.form {
+    color: white
+}
+
+.form {
+    width: 85%;
+    margin-top: -4vw;
+}
+
+.inputs_wrapp {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+.order_inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.order_inputs2 {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 2vw;
+
+}
+
+.order_inputs_low {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 2vw;
+}
+
+
+/*.label_attach:after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 5vw;*/
+/*    bottom: -0.7vw;*/
+/*    width: 8vw;*/
+/*    height: 0.05vw;*/
+/*    background: rgba(255,255,255,0.4);*/
+/*}*/
+/*.order_checkbox{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    gap:1vw;*/
+/*    margin-top: 4vw;*/
+/*    margin-bottom: 4vw;*/
+/*}*/
+/*.order_checkbox label span{*/
+/*    color: grey;*/
+/*    font-size: 1.3vw;*/
+/*}*/
+/*.order_checkbox input{*/
+/*    height: 1.2vw;*/
+/*    width: 1.2vw;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.label_check{*/
+/*    font-size: 1.2vw;*/
+/*}*/
+/*.label_check:after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 34.5vw;*/
+/*    margin-top: 1.5vw;*/
+/*    width: 6.5vw;*/
+/*    height: 0.1vw;*/
+/*    background: rgba(255,255,255,0.4);*/
+/*}*/
+
+.btn_cost {
+    width: 20vw;
+    height: 4.5vw;
+    margin-top: 2.5vw;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3vw;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: #1d1d1d;
+    font-stretch: extra-expanded;
+    text-transform: uppercase;
+    font-size: 0.9vw;
+}
+
+
+/* Order*/
+.container_2 {
+    border-radius: 15px;
+    background-color: #232323;
+    padding: 8vw 8vw;
+    color: #fff;
+    width: 100%;
+}
+
+.container2_title {
+    font-size: 4vw;
+}
+
+.input1 {
+    width: 20vw;
+    padding-top: 1vw;
+    margin-right: 2vw;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 1.2vw;
+}
+
+.container h2 {
+    max-width: 80%;
+    line-height: 1.3;
+    font-size: 4vw;
+}
+
+.container h2 span {
+    font-weight: 600;
+}
+
+.container h2 span span {
+    font-size: 2vw;
+}
+
+.form_order {
+    padding: 4vw 0 0 0;
+    position: relative;
+    /*width: 100%;*/
+    margin: 0 auto;
+}
+
+.order_input_high {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.order_input_low {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 2vw;
+    width: 100%;
+
+}
+
+.label_order {
+    font-size: 1.2vw;
+}
+
+.order_input {
+    width: 20vw;
+    padding-top: 0.5vw;
+    margin-right: 2.5vw;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 1.2vw;
+}
+
+.order_checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5vw;
+    margin-left: -1vw;
+}
+
+.order_checkbox input {
+    width: 1.2vw;
+    height: 1.2vw;
+}
+
+.order_checkbox label span {
+    color: darkgrey;
+}
+
+.label_order {
+    position: relative;
+    padding: 0 0 0 0px;
+    z-index: 1;
+}
+
+.label_order:after {
+    content: '';
+    position: absolute;
+    left: 7vw;
+    bottom: -5px;
+    width: 6vw;
+    height: 0.1vw;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.btn_order {
+    margin-left: 1vw;
+    width: 16vw;
+    height: 4.5vw;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: #1d1d1d;
+    font-size: 1vw;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        padding: 95px 95px;
+    }
+
+    .container_2 {
+        border-radius: 15px;
+        background-color: #232323;
+        padding: 95px 95px;
+        color: #fff;
+
+    }
+
+    .container_form {
+        width: 1200px;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+
+    .input1 {
+        width: 220px;
+        padding-top: 10px;
+        margin-right: 25px;
+        border: none;
+        border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+        background: none;
+        outline: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    .container h2 {
+        max-width: 760px;
+        line-height: 1.3;
+        font-size: 52px;
+        font-weight: normal;
+    }
+
+    .container h2 span {
+        font-weight: 600;
+    }
+
+    .container h2 span span {
+        font-size: 25px;
+    }
+
+    .image_soil {
+        width: 40vw;
+        height: 15vw;
+    }
+
+    .img1 {
+        width: 12vw;
+        height: 12vw;
+    }
+
+    .img2 {
+        width: 10vw;
+        height: 10vw;
+        top: 30vw;
+    }
+
+    .img3 {
+        top: 30vw;
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .form_order {
+        padding: 50px 0 0 0;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .order_input_high {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .order_input_low {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 25px;
+        width: 110%;
+
+    }
+
+    .label_order {
+        font-size: 16px;
+    }
+
+    .order_checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-left: 10px;
+        /*margin-bottom: 70px;*/
+    }
+
+    .order_checkbox input {
+        width: 20px;
+        height: 20px;
+    }
+
+    .order_checkbox label span {
+        color: darkgrey;
+        font-size: 16px;
+    }
+
+
+    .label_order:after {
+        content: '';
+        left: 90px;
+        bottom: -10px;
+        width: 90px;
+        height: 0.5px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn_order {
+        margin-left: 20px;
+        margin-top: 0;
+        width: 250px;
+        height: 65px;
+        background: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        color: #1d1d1d;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .container {
+        width: 100%;
+        padding: 4vw 8vw;
+        /*margin-left: -20px;*/
+        /*width: calc(100% + 40px);*/
+    }
+
+    .container_form {
+        width: 100%;
+
+    }
+
+    .container h2 {
+        max-width: 100%;
+        line-height: 1.7;
+        font-size: 4.2vw;
+    }
+
+    .container2_title {
+
+        font-size: 6vw;
+
+    }
+
+    .img1 {
+        top: 15vw;
+        right: 7vw;
+        height: 15vw;
+        width: 15vw;
+    }
+
+    .img2 {
+        position: absolute;
+        top: 35vw;
+        left: 9vw;
+        height: 15vw;
+        width: 15vw;
+    }
+
+    .img3 {
+        top: 52vw;
+        right: 16vw;
+        height: 15vw;
+        width: 15vw;
+    }
+
+    .image_soil {
+        width: 50vw;
+        height: 20vw;
+    }
+
+    .form_order {
+        margin-bottom: 4vw;
+    }
+
+    .order_input_high {
+        display: block;
+        width: 100%;
+    }
+
+    .order_input_low {
+        display: block;
+        width: 100%;
+
+    }
+
+    .order_input {
+        width: 80%;
+    }
+
+    .order_checkbox {
+        margin-top: 7vw;
+    }
+
+    .order_checkbox input {
+        height: 3vw;
+        width: 3vw;
+    }
+
+    .label {
+        font-size: 3vw;
+        margin-bottom: 2vw;
+        margin-top: 3vw;
+    }
+
+
+    .label_order:after {
+        left: 22vw;
+        bottom: -5px;
+        width: 20vw;
+        height: 0.1vw;
+        background: rgba(255, 255, 255, 0.4);
+
+    }
+
+    .order_checkbox label {
+        padding-left: 3vw;
+        font-size: 3.5vw;
+
+    }
+
+    .btn_order {
+        width: 100%;
+        margin-top: 50px;
+        height: 10vw;
+        font-size: 3vw;
+    }
+
+}
+

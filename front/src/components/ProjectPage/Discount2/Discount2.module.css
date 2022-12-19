@@ -1,0 +1,378 @@
+.container {
+    border-radius: 15px;
+    background-color: white;
+    padding: 8vw 8vw;
+    color: black;
+    width: 100%;
+}
+
+.input1 {
+    width: 20vw;
+    padding-top: 1vw;
+    margin-right: 2vw;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 1.2vw;
+}
+
+.container h2 {
+    max-width: 80%;
+    line-height: 1.3;
+    font-size: 4vw;
+}
+
+.container h2 span {
+    font-weight: 600;
+}
+
+.container h2 span span {
+    font-size: 2vw;
+}
+
+.form_order {
+    padding: 4vw 0 0 0;
+    position: relative;
+    /*width: 100%;*/
+    margin: 0 auto;
+}
+
+.order_input_high {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 111%;
+}
+
+.order_input_low {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 2vw;
+    width: 111%;
+
+}
+
+.label_order {
+    font-size: 1.2vw;
+}
+
+.order_input {
+    width: 20vw;
+    padding-top: 0.5vw;
+    margin-right: 2.5vw;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 1.2vw;
+}
+
+.order_checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5vw;
+    margin-left: -1vw;
+}
+
+.order_checkbox input {
+    width: 1.2vw;
+    height: 1.2vw;
+}
+
+.order_checkbox label span {
+    color: darkgrey;
+}
+
+.label_order {
+    position: relative;
+    padding: 0 0 0 0px;
+    z-index: 1;
+}
+
+.label_order:after {
+    content: '';
+    position: absolute;
+    left: 7vw;
+    bottom: -5px;
+    width: 6vw;
+    height: 0.1vw;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.btn_order {
+    margin-left: 1vw;
+    margin-top: 0;
+    width: 16vw;
+    height: 4.5vw;
+    background: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 1vw;
+    text-transform: uppercase;
+}
+
+.input_field {
+    width: 18vw;
+    margin-right: 5vw;
+    border: none;
+    border-bottom: solid 1px rgb(12, 11, 11);
+    background: none;
+    outline: none;
+    color: grey;
+    cursor: pointer;
+
+
+}
+
+.order_attach {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    flex-direction: row;
+    padding-top: 1.2vw;
+    border: dashed 1px rgb(12, 11, 11);
+    padding-bottom: 1.2vw;
+    width: 30vw;
+    margin-top: 3vw;
+}
+
+.order_attach img {
+    width: 1vw;
+    height: 1vw;
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        border-radius: 15px;
+        background-color: white;
+        padding: 95px 95px;
+        color: black;
+
+    }
+
+    .input_field {
+        border: none;
+        outline: none;
+        color: grey;
+        width: 220px;
+        margin-right: 50px;
+        border-bottom: solid 1px rgba(23, 22, 22, 0.4);
+        background: none;
+
+
+    }
+
+    .input1 {
+        width: 220px;
+        padding-top: 10px;
+        margin-right: 25px;
+        border: none;
+        border-bottom: solid 2px rgba(155, 149, 149);
+        background: none;
+        outline: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    .container h2 {
+        max-width: 760px;
+        line-height: 1.3;
+        font-size: 52px;
+        font-weight: normal;
+    }
+
+    .container h2 span {
+        font-weight: 600;
+    }
+
+    .container h2 span span {
+        font-size: 25px;
+    }
+
+    .form_order {
+        padding: 50px 0 0 0;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .order_input_high {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 110%;
+    }
+
+    .order_input_low {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 25px;
+        width: 110%;
+
+    }
+
+    .label_order {
+        font-size: 16px;
+    }
+
+    .order_checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-left: 10px;
+    }
+
+    .order_checkbox input {
+        width: 20px;
+        height: 20px;
+    }
+
+    .order_checkbox label span {
+        color: darkgrey;
+        font-size: 16px;
+    }
+
+
+    .label_order:after {
+        content: '';
+        left: 90px;
+        bottom: -10px;
+        width: 90px;
+        height: 0.5px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn_order {
+        margin-left: 20px;
+        margin-top: 0;
+        width: 250px;
+        height: 65px;
+        background: black;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .order_attach {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-direction: row;
+        padding-top: 20px;
+        margin-top: 30px;
+        border: dashed 1px rgb(12, 11, 11);
+        padding-bottom: 20px;
+        width: 450px;
+        margin-left: 20px;
+    }
+
+    .order_attach img {
+        width: 20px;
+        height: 20px;
+        color: black;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .container {
+        padding: 40px 20px;
+        margin-left: -20px;
+        width: calc(100% + 40px);
+    }
+
+    .container h2 {
+        max-width: 100%;
+        line-height: 1.7;
+        font-size: 5vw;
+        text-align: center;
+    }
+
+    .form_order {
+        margin-bottom: 4vw;
+    }
+
+    .order_input_high {
+        display: block;
+        width: 100%;
+    }
+
+    .order_input_low {
+        display: block;
+        width: 100%;
+        order: 1;
+
+    }
+
+    .order_attach {
+        display: none;
+    }
+
+    .order_input {
+        width: 80%;
+    }
+
+    .order_checkbox {
+        margin-top: 7vw;
+
+    }
+
+    .order_checkbox input {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .label {
+        font-size: 3vw;
+        margin-bottom: 2vw;
+        margin-top: 3vw;
+    }
+
+
+    .label_order:after {
+        left: 8vw;
+        bottom: -5px;
+        width: 40vw;
+        height: 0.1vw;
+        background: rgba(255, 255, 255, 0.4);
+
+    }
+
+    .order_checkbox label {
+        padding-left: 3vw;
+        font-size: 3.5vw;
+
+    }
+
+    .btn_order {
+        width: 100%;
+        margin-top: 50px;
+        height: 10vw;
+        font-size: 2.5vw;
+    }
+
+    .input_field {
+        width: 100%;
+        margin-right: 5vw;
+
+
+    }
+
+}

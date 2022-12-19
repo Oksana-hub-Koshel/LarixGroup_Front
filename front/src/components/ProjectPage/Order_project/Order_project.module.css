@@ -1,0 +1,320 @@
+
+.container {
+    background-color: #232323;
+    padding: 6vw 8vw;
+    color: #fff;
+    width: 100%;
+}
+
+.title {
+    width: 90%;
+    line-height: 1.3;
+    font-size: 4vw;
+}
+
+.form_order {
+    padding: 4vw 0 0 0;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.order_input_high {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.order_input_low {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 2vw;
+}
+
+.label {
+    display: block;
+    font-size: 1.2vw;
+    opacity: 0.4;
+}
+
+.order_input {
+    width: 20vw;
+    padding-top: 0.5vw;
+    margin-right: 2.5vw;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 1.2vw;
+}
+
+.order_checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.label_check {
+    font-size: 1.3vw;
+}
+
+.label_check span {
+    font-size: 1.3vw;
+    color: grey;
+}
+
+
+.order_check {
+    width: 1.2vw;
+    height: 1.2vw;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.label_order {
+    position: relative;
+    padding: 0 0 0 0px;
+    z-index: 1;
+}
+
+
+.label_check:after {
+    content: '';
+    position: absolute;
+    left: 45.5vw;
+    bottom: 2.5vw;
+    width: 7.4vw;
+    height: 0.1vw;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.input_field {
+    width: 15vw;
+    margin-right: 3vw;
+    border: none;
+    border-bottom: solid 0.1vw rgba(255, 255, 255, 0.4);
+    background: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn_order {
+    margin-left: 2vw;
+    font-size: 1vw;
+    margin-top: 0;
+    width: 16vw;
+    height: 4.5vw;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: #1d1d1d;
+    font-stretch: extra-expanded;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+
+        background-color: #232323;
+        /*padding: 100px 120px;*/
+        color: #fff;
+        width: 100%;
+    }
+
+    .global_wrapp {
+        background-color: black;
+        width: 100%;
+    }
+
+    .wrapp {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .container h2 {
+        max-width: 80%;
+        line-height: 1.3;
+        font-size: 55px;
+    }
+
+    .form_order {
+        padding: 50px 0 0 0;
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .order_input_high {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .order_input_low {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .label {
+        display: block;
+        font-size: 20px;
+        opacity: 0.4;
+    }
+
+    .order_input {
+        width: 250px;
+        padding-top: 10px;
+        margin-right: 35px;
+        border: none;
+        border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+        background: none;
+        outline: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    .order_checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 0px;
+    }
+
+    .label_check {
+        font-size: 20px;
+    }
+
+    .label_check span {
+        font-size: 20px;
+        color: grey;
+    }
+
+
+    .order_check {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .label_order {
+        position: relative;
+        padding: 0 0 0 0px;
+        z-index: 1;
+    }
+
+
+    .input_field {
+        width: 250px;
+        margin-right: 40px;
+        border: none;
+        border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+        background: none;
+        outline: none;
+        color: white;
+    }
+
+    .btn_order {
+        margin-left: 20px;
+        margin-top: 0;
+        width: 250px;
+        height: 65px;
+        background: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        color: #1d1d1d;
+        font-stretch: extra-expanded;
+        text-transform: uppercase;
+        font-size: 16px;
+
+    }
+
+    .label_check:after {
+        content: '';
+        position: absolute;
+        left: 720px;
+        bottom: 30px;
+        width: 115px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .title {
+        font-size: 6vw;
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        padding: 8vw 5vw;
+    }
+
+    .form_order {
+        width: 100%;
+    }
+
+    .order_input_high {
+        flex-direction: column;
+        align-items: normal;
+    }
+
+    .order_input_low {
+        flex-direction: column;
+        align-items: normal;
+    }
+
+    .order_checkbox {
+        margin-top: 8vw;
+        margin-bottom: 2vw;
+    }
+
+    .order_check {
+        width: 3vw;
+        height: 3vw;
+
+    }
+
+    .label_check {
+        font-size: 3vw;
+    }
+
+    .label_check span {
+        font-size: 3vw;
+    }
+
+    .btn_order {
+        margin-top: 4vw;
+        width: 100%;
+        height: 10vw;
+        font-size: 2vw;
+        margin-left: 0vw;
+    }
+
+    .input_field {
+        width: 100%;
+    }
+
+    .label_check:after {
+        left: 22vw;
+        bottom: 15vw;
+        width: 17vw;
+        height: 0.2vw;
+
+    }
+}

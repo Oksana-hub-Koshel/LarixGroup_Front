@@ -1,0 +1,262 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: space-around;
+}
+
+.promo_wrapper {
+    width: 42vw;
+    margin-bottom: 1.5vw;
+    position: relative;
+    background-color: #fafafa;
+    border-radius: 15px;
+    height: 38vw;
+
+}
+
+.item_number {
+    font-size: 1.8vw;
+    color: #646464;
+    position: absolute;
+    top: 3vw;
+    left: 3vw;
+}
+
+.item_number span {
+    color: #9f9f9f;
+}
+
+.item_image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+.item_image img {
+    height: 100%;
+}
+
+.item_title {
+    position: absolute;
+    bottom: 3vw;
+    left: 3vw;
+    font-size: 1.8vw;
+    font-weight: normal;
+    line-height: 1.4;
+    max-width: 28vw;
+
+}
+
+.item_title h4 {
+    font-size: 2vw;
+    font-weight: normal;
+}
+
+.item_title p {
+    color: #646464;
+    font-size: 1.2vw;
+    padding-top: 1.8vw;
+    padding-bottom: 3vw;
+    font-weight: 500;
+}
+
+.item_title a {
+    position: relative;
+    color: #212121;
+    font-size: 1.6vw;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.item_title a:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1vw;
+    background-color: #212121;
+    top: 2vw;
+    left: 0;
+    opacity: 0.3;
+}
+
+.item_title a:after {
+    content: '→';
+    position: absolute;
+    color: #212121;
+    opacity: 0.4;
+    right: -2vw;
+    top: -0.1vw;
+}
+
+.padding {
+    margin-bottom: 7vw;
+}
+
+
+@media screen and (min-width: 1280px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        justify-content: space-around;
+    }
+
+    .promo_wrapper {
+        width: 570px;
+        margin-bottom: 25px;
+        position: relative;
+        background-color: #fafafa;
+        border-radius: 15px;
+        height: 510px;
+
+    }
+
+    .item_number {
+        font-size: 30px;
+        color: #646464;
+        position: absolute;
+        top: 35px;
+        left: 35px;
+    }
+
+    .item_number span {
+        color: #9f9f9f;
+    }
+
+    .item_image {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+    }
+
+    .item_image img {
+        height: 100%;
+    }
+
+    .item_title {
+        position: absolute;
+        bottom: 35px;
+        left: 35px;
+        font-size: 22px;
+        font-weight: normal;
+        line-height: 1.4;
+        max-width: 320px;
+
+    }
+
+    .item_title h4 {
+        font-size: 25px;
+        font-weight: normal;
+    }
+
+    .item_title p {
+        color: #646464;
+        font-size: 16px;
+        padding-top: 25px;
+        padding-bottom: 35px;
+        font-weight: 500;
+    }
+
+    .item_title a {
+        position: relative;
+        color: #212121;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .item_title a:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #212121;
+        top: 25px;
+        left: 0;
+        opacity: 0.3;
+    }
+
+    .item_title a:after {
+        content: '→';
+        position: absolute;
+        color: #212121;
+        opacity: 0.4;
+        right: -30px;
+        top: -5px;
+    }
+
+    .padding {
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .container {
+        padding: 20px 0 0 0;
+
+    }
+
+    .promo_wrapper {
+        width: 100%;
+        height: 100vw;
+    }
+
+    .item_image {
+        height: 100%;
+    }
+
+    .item_number {
+        position: static;
+        font-size: 3.5vw;
+        padding-bottom: 2vw;
+        margin-top: 4vw;
+        margin-left: 3vw;
+    }
+
+    .item_title {
+        position: static;
+        margin-top: 3vw;
+        margin-left: 3vw;
+        display: flex;
+        flex-direction: column;
+        max-width: 50vw;
+
+
+    }
+
+    .item_title h4 {
+        font-size: 4vw;
+        margin-bottom: 3vw;
+        color: black;
+
+
+    }
+
+    .item_title p {
+        font-size: 2.5vw;
+        padding-bottom: 20vw;
+    }
+
+    .item_title a {
+        font-size: 4vw;
+
+    }
+
+    .item_title a:after {
+        right: 23vw;
+        top: 0.1vw;
+
+    }
+
+    .item_title a:before {
+
+        top: 6vw;
+        left: 0;
+        width: 45%;
+
+    }
+}
+

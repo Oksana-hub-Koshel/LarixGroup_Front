@@ -1,0 +1,379 @@
+
+.container {
+    border-radius: 15px;
+    /*background-color: #232323;*/
+    padding: 6vw 1vw;
+    color: black;
+    width: 86%;
+    margin: 0 auto;
+}
+
+.div_button {
+    padding-top: 3vw;
+    text-align: center;
+}
+
+.button_setting {
+    width: 22vw;
+    height: 6vw;
+    color: #fff;
+    background: #212121;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    font-stretch: extra-expanded;
+    text-transform: uppercase;
+    font-size: 1vw;
+    line-height: 1.5;
+}
+
+
+.container h2 {
+    max-width: 80%;
+    line-height: 1.3;
+    font-size: 3.5vw;
+}
+
+.container h2 span {
+    font-weight: 600;
+}
+
+.container h2 span span {
+    font-size: 2vw;
+}
+
+.form_order {
+    padding: 4vw 0 0 0;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.order_input_high {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.order_input_low {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 2vw;
+    width: 100%;
+
+}
+
+.label_order {
+    font-size: 1.2vw;
+}
+
+.order_input {
+    width: 20vw;
+    padding-top: 0.5vw;
+    margin-right: 2.5vw;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+    background: none;
+    outline: none;
+    color: black;
+    font-size: 1.2vw;
+}
+
+.order_checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5vw;
+
+}
+
+.order_checkbox input {
+    width: 1.2vw;
+    height: 1.2vw;
+}
+
+.order_checkbox label span {
+    color: darkgrey;
+}
+
+.label_order {
+    position: relative;
+    padding: 0 0 0 0px;
+    z-index: 1;
+}
+
+.label_order:after {
+    content: '';
+    position: absolute;
+    left: 7vw;
+    bottom: -5px;
+    width: 6vw;
+    height: 0.1vw;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.input_field {
+    width: 16vw;
+    margin-right: 3vw;
+    border: none;
+    border-bottom: solid 1px rgb(98, 95, 95);
+    background: none;
+    outline: none;
+    color: black;
+    cursor: pointer;
+}
+
+.btn_order {
+
+    margin-top: 0;
+    width: 15vw;
+    margin-left: 1vw;
+    height: 4.5vw;
+    background: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 1vw;
+    text-transform: uppercase;
+}
+
+
+@media screen and (min-width: 1280px) {
+    .container {
+        border-radius: 15px;
+        /*background-color: #232323;*/
+        padding: 100px 30px;
+        /*color: ;*/
+        width: 1200px;
+        margin: 0 auto;
+
+    }
+
+    .input1 {
+        width: 220px;
+        padding-top: 10px;
+        margin-right: 25px;
+        border: none;
+        border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+        background: none;
+        outline: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    .container h2 {
+        max-width: 760px;
+        line-height: 1.3;
+        font-size: 52px;
+        font-weight: normal;
+    }
+
+    .container h2 span {
+        font-weight: 600;
+    }
+
+    .container h2 span span {
+        font-size: 25px;
+    }
+
+    .form_order {
+        padding: 50px 0 0 0;
+        position: relative;
+
+    }
+
+    .order_input_high {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .order_input_low {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 25px;
+        width: 100%;
+
+    }
+
+    .label_order {
+        font-size: 14px;
+    }
+
+
+    .order_checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-left: 1vw;
+
+    }
+
+    .order_checkbox input {
+        width: 18px;
+        height: 18px;
+    }
+
+    .order_checkbox label span {
+        color: darkgrey;
+        font-size: 14px;
+        /*font-size: 16px;*/
+    }
+
+
+    .label_order:after {
+        content: '';
+        left: 75px;
+        bottom: -3px;
+        width: 85px;
+        height: 1px;
+        background: #c1c0c0;
+    }
+
+    .input_field {
+        width: 220px;
+        margin-right: 50px;
+        border: none;
+        border-bottom: solid 1px rgb(98, 95, 95);
+        background: none;
+        outline: none;
+        color: black;
+
+    }
+
+    .btn_order {
+        margin-left: 20px;
+        margin-top: 0;
+        width: 250px;
+        height: 65px;
+        background: black;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .button_setting {
+        width: 260px;
+        height: 65px;
+        font-size: 14px;
+        margin-left: 40px;
+
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        /*padding: 7vw 6vw;*/
+
+    }
+
+    .container h2 {
+        max-width: 100%;
+        line-height: 1.4;
+        font-size: 5vw;
+    }
+
+    .form_order {
+        margin-bottom: 4vw;
+        margin-top: 4vw;
+        width: 100%;
+    }
+
+    .order_input_high {
+        display: block;
+        width: 95%;
+    }
+
+    .order_input_low {
+        display: block;
+        width: 95%;
+
+    }
+
+    .order_input {
+        width: 80%;
+    }
+
+    .order_checkbox {
+        margin-top: 7vw;
+
+
+    }
+
+    .order_checkbox input {
+        width: 3vw;
+        height: 3vw;
+        margin-left: 2vw;
+    }
+
+    .label {
+        font-size: 3vw;
+        margin-bottom: 2vw;
+        margin-top: 3vw;
+    }
+
+
+    .label_order:after {
+        left: 22vw;
+        bottom: -5px;
+        width: 20vw;
+        height: 0.1vw;
+        background: rgba(255, 255, 255, 0.4);
+
+    }
+
+    .order_checkbox label {
+        padding-left: 2vw;
+        font-size: 3.5vw;
+
+    }
+
+    .input_field {
+        width: 100%;
+        border-bottom: solid 1px rgb(98, 95, 95);
+
+    }
+
+    .btn_order {
+        width: 100%;
+        margin-top: 50px;
+        height: 12vw;
+        font-size: 2.5vw;
+    }
+
+    .button_setting {
+        width: 45vw;
+        height: 10vw;
+        font-size: 2.5vw;
+        line-height: 1.2;
+
+    }
+
+    .div_button {
+        padding-top: 5vw;
+        margin-bottom: 2vw;
+
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+
+}
+

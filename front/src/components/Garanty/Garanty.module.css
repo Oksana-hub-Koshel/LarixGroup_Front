@@ -1,0 +1,135 @@
+.container {
+    display: flex;
+    height: 40vw;
+    overflow: hidden;
+    margin-top: 8vw;
+    justify-content: space-between;
+    color: #212121;
+
+
+}
+
+.left_block {
+    transform: scale(-1, 1);
+    padding-left: 3%;
+    overflow: hidden;
+    font-size: 65vw;
+    opacity: 0.05;
+    line-height: 0.7;
+    height: 30vw;
+    padding-top: 2vw;
+}
+
+.center_block {
+    height: 30vw;
+    text-align: center;
+}
+
+.center_block h2 {
+    font-size: 3.8vw;
+}
+
+.center_block_text1 {
+    padding: 3vw 0 4vw 0;
+    font-size: 9vw;
+    color: #5dd983;
+}
+
+.center_block_text2 {
+    font-size: 1.2vw;
+    line-height: 2;
+}
+
+.right_block {
+    height: 30vw;
+    overflow: hidden;
+    font-size: 60vw;
+    opacity: 0.05;
+    line-height: 0.7;
+    padding-top: 2vw;
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        display: flex;
+        height: 500px;
+        overflow: hidden;
+        margin-top: 90px;
+        justify-content: space-between;
+        color: #212121;
+
+
+    }
+
+    .left_block {
+        transform: scale(-1, 1);
+        padding-left: 3%;
+        overflow: hidden;
+        font-size: 700px;
+        opacity: 0.05;
+        line-height: 0.7;
+        height: 350px;
+        padding-top: 20px;
+    }
+
+    .center_block {
+        min-width: 400px;
+    }
+
+    .center_block h2 {
+        font-size: 45px;
+    }
+
+    .center_block_text1 {
+        padding: 40px 0 50px 0;
+        font-size: 120px;
+        color: #5dd983;
+    }
+
+    .center_block_text2 {
+        font-size: 20px;
+        line-height: 2;
+    }
+
+    .right_block {
+        height: 350px;
+        overflow: hidden;
+        font-size: 700px;
+        opacity: 0.05;
+        line-height: 0.7;
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        margin-bottom: 10vw;
+    }
+
+    .left_block {
+        display: none;
+    }
+
+    .right_block {
+        display: none;
+    }
+
+    .center_block {
+        width: 100%;
+        margin-top: 3vw;
+
+    }
+
+    .center_block h2 {
+        font-size: 8vw;
+    }
+
+    .center_block_text1 {
+        font-size: 8vw;
+    }
+
+    .center_block_text2 {
+        font-size: 2.5vw;
+
+    }
+}

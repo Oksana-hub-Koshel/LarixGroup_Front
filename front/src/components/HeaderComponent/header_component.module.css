@@ -1,0 +1,444 @@
+.header_info {
+    padding: 1.9vw 0 4vw 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo_address {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1.3vw;
+}
+
+.address div {
+    font-size: 1.2vw;
+}
+
+.info_left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name {
+    opacity: 0.5;
+    margin-bottom: 1vw;
+}
+
+.name h5 {
+    font-size: 1.5vw;
+}
+
+.info_right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1vw;
+}
+
+.logo {
+    font-weight: bolder;
+    color: #fff;
+    font-family: "Golos Text DemiBold", Arial, Helvetica, sans-serif;
+    font-size: 1.8vw;
+    text-decoration: none;
+}
+
+.logo_block {
+    margin-bottom: 1vw;
+}
+
+.logo_text {
+    text-align: left;
+    line-height: 0.8;
+    font-size: 1vw;
+    margin-left: 2vw;
+}
+
+.bucket_img {
+    height: 1.7vw;
+    width: 1.6vw;
+}
+
+.call_me_text {
+    font-size: 1vw;
+    text-transform: uppercase;
+}
+
+.logo_text h5 {
+    opacity: 0.5;
+}
+
+.number_telephone {
+    color: white;
+    text-decoration: none;
+    padding-left: 0.3vw;
+}
+
+.call_me {
+    margin-top: 1.5vw;
+    height: 3.5vw;
+    width: 18vw;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: #1d1d1d;
+    font-stretch: extra-expanded;
+    text-transform: uppercase;
+}
+
+.header_nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav_link {
+    padding-right: 3.5vw;
+    font-size: 0.9vw;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+.header_control_global {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header_control {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    padding-bottom: 2vw;
+}
+
+.control_backet {
+    text-align: left;
+    margin-left: 2vw;
+}
+
+.control_backet_title {
+    position: relative;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    padding-bottom: 0.5vw;
+    font-size: 1vw;
+}
+
+.control_backet_title p {
+    font-size: 0.9vw;
+    color: white;
+}
+
+.control_backet_count {
+    position: relative;
+    color: #b1b1b1;
+    font-size: 1vw;
+}
+
+.menu_img {
+    display: none;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    padding: 1.2vw 1.2vw;
+    color: black;
+
+    text-align: left;
+
+    margin-bottom: 2vw;
+}
+
+.item a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown {
+    display: flex;
+    /* width: 100%; */
+    flex-direction: row;
+    background-color: white;
+    width: 75vw;
+    top: -20px;
+}
+
+.menu_info {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menu_info h3 {
+    color: black;
+    margin-bottom: 2vw;
+    font-size: 4vw;
+    font-weight: bolder;
+}
+
+.menu_info p {
+    color: black;
+    margin-bottom: 1.2vw;
+}
+
+.list_menu h2 {
+    color: black;
+    margin-bottom: 3vw;
+    margin-top: 3vw;
+    font-size: 5vw;
+    margin-left: 3vw;
+}
+
+.list_menu {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.text_low {
+    margin-top: 2.5vw;
+    margin-left: 1vw;
+    margin-bottom: 3vw;
+}
+
+.text_low p {
+    line-height: 0.5;
+    text-align: justify;
+    opacity: 0.8;
+    color: gray;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+}
+
+.cross_icon {
+    margin-top: 1.5vw;
+    width: 5vw;
+    height: 5vw;
+}
+
+@media screen and (min-width: 1280px) {
+    .header_info {
+        padding: 25px 0 75px 0;
+        width: 100%;
+    }
+
+    .logo_address {
+        gap: 5px;
+    }
+
+    .address {
+        margin-left: 20px;
+    }
+
+    .address div {
+        font-size: 14px;
+    }
+
+    .name {
+        opacity: 0.5;
+        margin-bottom: 15px;
+    }
+
+    .name h5 {
+        font-size: 24px;
+    }
+
+    .info_right {
+        font-size: 12px;
+    }
+
+    .logo {
+        font-weight: bolder;
+        font-size: 24px;
+    }
+
+    .logo_block {
+        margin-bottom: 20px;
+    }
+
+    .logo_text {
+        text-align: left;
+        line-height: 0.8;
+        font-size: 20px;
+        margin-left: 25px;
+    }
+
+    .logo_text h5 {
+        font-size: 14px;
+    }
+
+    .bucket_img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .call_me_text {
+        font-size: 14px;
+    }
+
+    .logo_text h5 {
+        opacity: 0.5;
+    }
+
+    .number_telephone {
+        padding-left: 5px;
+    }
+
+    .call_me {
+        margin-top: 20px;
+        height: 45px;
+        width: 220px;
+    }
+
+    .nav_link {
+        padding-right: 45px;
+        font-size: 12px;
+    }
+
+    .nav_link_selected {
+        padding-right: 45px;
+        font-size: 12px;
+        /* color: rgb(150, 252, 146); */
+    }
+
+    .header_control_global {
+        width: 100%;
+    }
+
+    .header_control {
+        padding-bottom: 25px;
+    }
+
+    .control_backet {
+        margin-left: 25px;
+    }
+
+    .control_backet_title {
+        padding-bottom: 5px;
+    }
+
+    .control_backet_title p {
+        font-size: 14px;
+    }
+
+    .control_backet_count {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    nav label {
+        display: inline-block;
+    }
+
+    nav > a {
+        display: none;
+    }
+
+    img:checked ~ label + a {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .text_high {
+        margin-left: 1vw;
+    }
+
+    .bucket_img_none {
+        display: none;
+    }
+
+    .address {
+        display: none;
+    }
+
+    .logo_text h5 {
+        display: none;
+    }
+
+    .info_right {
+        display: none;
+    }
+
+    .control_backet {
+        display: none;
+    }
+
+    .call_me {
+        width: 20vw;
+        height: 6vw;
+        margin-right: 35vw;
+        margin-top: 2vw;
+    }
+
+    .call_me_text {
+        font-size: 1.5vw;
+    }
+
+    .bucket_img {
+        display: block;
+        height: 4.5vw;
+        width: 4vw;
+        margin-bottom: 1vw;
+    }
+
+    .menu_img {
+        display: block;
+        height: 3.5vw;
+        width: 4vw;
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 3vw;
+        left: 22vw;
+        /* margin-top: 3vw; */
+        padding: 10px;
+        z-index: 1;
+    }
+
+    .logo {
+        font-size: 4vw;
+    }
+
+    .logo_block {
+        margin-top: 3vw;
+    }
+
+    .header_control {
+        padding-bottom: 4vw;
+        margin-top: -9vw;
+        gap: 3vw;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    /*.header_info{*/
+    /*    width: 86%;*/
+    /*}*/
+}

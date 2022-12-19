@@ -1,0 +1,302 @@
+.container {
+    width: 100%;
+    margin-top: 7vw;
+    color: #212121;
+    padding-bottom: 4vw;
+    border-bottom: solid 1px rgba(28, 28, 28, 0.1);
+    display: flex;
+    flex-direction: row;
+}
+
+.container_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    gap: 5vw
+}
+
+.visible_title {
+    font-size: 3.5vw;
+    font-weight: normal;
+}
+
+.container_right {
+    width: 50%;
+
+}
+
+.car_image img {
+    width: 32vw;
+    height: 17vw;
+}
+
+.info {
+    font-size: 1.5vw;
+    text-align: left;
+    line-height: 1.7;
+    padding-bottom: 2vw;
+}
+
+.delivery_contact {
+    padding-top: 2vw;
+}
+
+.delivery_contact p {
+    margin-bottom: 2.2vw;
+    line-height: 1.7;
+}
+
+.delivery_email {
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    color: #4071ee;
+}
+
+.delivery_phone {
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    padding-right: 3vw;
+    color: #212121;
+}
+
+
+.delivery_low_block_left {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20vw;
+    width: 50%;
+}
+
+.delivery_low_block_left h2 {
+    font-size: 4vw;
+    font-weight: normal;
+}
+
+.delivery_low_block_left img {
+    width: 32vw;
+    height: 17vw;
+}
+
+.delivery_low_block_right {
+    width: 50%;
+    margin-left: auto;
+}
+
+.low_block_container {
+    width: 100%;
+    margin-top: 6vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.container_right_low {
+    width: 100%;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.delivery_contact {
+    font-size: 1.5vw;
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1200px;
+        display: flex;
+        flex-direction: row;
+        margin-top: 90px;
+        color: #212121;
+        padding-bottom: 50px;
+        border-bottom: solid 1px rgba(28, 28, 28, 0.1);
+        gap: 10%
+    }
+
+    .container_left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 45%;
+        gap: 240px
+    }
+
+    .visible_title {
+        font-size: 45px;
+        font-weight: normal;
+    }
+
+    .container_right {
+        width: 45%;
+
+    }
+
+    .container_right p {
+        font-size: 20px;
+    }
+
+    .car_image img {
+        width: 450px;
+        height: 200px;
+    }
+
+    .info {
+        font-size: 20px;
+        text-align: left;
+        line-height: 1.7;
+        padding-bottom: 25px;
+    }
+
+    .delivery_contact {
+        padding-top: 25px;
+    }
+
+    .delivery_contact p {
+        margin-bottom: 28px;
+        line-height: 1.7;
+        font-size: 13px;
+    }
+
+    .delivery_email {
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        color: #4071ee;
+    }
+
+    .delivery_phone {
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        padding-right: 40px;
+        color: #212121;
+    }
+
+
+    .delivery_low_block_left {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 250px;
+        width: 45%;
+    }
+
+    .delivery_low_block_left h2 {
+        font-size: 50px;
+        font-weight: normal;
+    }
+
+    .delivery_low_block_left img {
+        width: 450px;
+        height: 200px;
+    }
+
+    .delivery_low_block_right {
+        width: 45%;
+        margin-left: auto;
+    }
+
+    .low_block_container {
+        width: 100%;
+        margin-top: 75px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10%
+    }
+
+    .container_right_low {
+        width: 100%;
+
+    }
+
+    .hidden {
+        display: none;
+    }
+
+
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .container_right {
+        order: -1;
+        width: 100%;
+    }
+
+    .container_left {
+        width: 100%;
+
+    }
+
+    .car_image img {
+        width: 100%;
+        height: 40vw;
+
+    }
+
+    .info {
+        font-size: 3vw;
+    }
+
+    .hidden {
+        display: block;
+        font-size: 6vw;
+        margin-bottom: 4vw;
+    }
+
+    .visible_title {
+        display: none;
+
+    }
+
+    .delivery_phone {
+        font-size: 3vw;
+    }
+
+    .delivery_email {
+        font-size: 3vw;
+        margin-left: 10vw;
+    }
+
+    .delivery_contact p {
+        font-size: 3vw;
+    }
+
+    .low_block_container {
+        flex-direction: column;
+        margin-bottom: 5vw;
+    }
+
+    .title_main {
+        display: none;
+    }
+
+    .delivery_low_block_right {
+        order: -1;
+        width: 100%;
+        margin-bottom: 4vw;
+    }
+
+    .delivery_low_block_left {
+        width: 100%;
+    }
+
+    .delivery_low_block_left img {
+        width: 100%;
+        height: 40vw;
+    }
+
+    .container_right_low {
+        margin-left: 0vw;
+    }
+
+}

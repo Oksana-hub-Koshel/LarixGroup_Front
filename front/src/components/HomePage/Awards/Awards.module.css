@@ -1,0 +1,247 @@
+.urban {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5vw 0;
+    width: 86%;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 20px
+
+}
+
+.urban_left {
+    width: 15vw;
+
+    text-align: center;
+}
+
+.urban_center {
+    width: 40vw;
+    margin-left: 4vw;
+
+}
+
+.urban_right {
+    width: 15vw;
+}
+
+.large_text {
+    margin-bottom: 1.5vw;
+    font-size: 3.8vw;
+    line-height: 1.3;
+}
+
+.small_text {
+    margin-bottom: 2vw;
+    padding-top: 2.5vw;
+    font-size: 1.3vw;
+    line-height: 2;
+    color: #565555;
+}
+
+
+.right_large {
+    margin-bottom: 1vw;
+    font-size: 5vw;
+    line-height: 1.3;
+}
+
+.right_small {
+    margin-bottom: 1.2vw;
+    font-size: 1.2vw;
+    padding-bottom: 3vw;
+}
+
+.urban_image {
+    display: inline-block;
+    width: 8.5vw;
+    height: 8.5vw;
+    margin-bottom: 2vw;
+    margin-top: 3.5vw;
+    border-radius: 50%;
+    background: #212121 url("../../../../public/Data/urban-awards.png") scroll;
+    background-size: 4vw 4vw;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.urban_small_text {
+    margin-bottom: 1.5vw;
+    font-size: 1.2vw;
+    padding-bottom: 0.7vw;
+}
+
+.urban_large_text {
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    font-size: 1.8vw;
+    font-weight: 600;
+    line-height: 1.4;
+
+}
+
+@media screen and (min-width: 1280px) {
+    .urban {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 65px 0;
+        width: 1200px;
+        margin: 0 auto;
+        justify-content: center;
+        gap: 80px
+
+    }
+
+    .urban_left {
+        width: 250px;
+        text-align: center;
+    }
+
+    .urban_center {
+        width: 450px;
+        margin-left: 10px;
+
+
+    }
+
+    .urban_right {
+        width: 180px;
+    }
+
+    .large_text {
+        margin-bottom: 5px;
+        font-size: 50px;
+        line-height: 1.3;
+    }
+
+    .small_text {
+        margin-bottom: 25px;
+        padding-top: 35px;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #565555;
+    }
+
+
+    .right_large {
+        margin-bottom: 15px;
+        font-size: 60px;
+        line-height: 1.3;
+    }
+
+    .right_small {
+        margin-bottom: 20px;
+        font-size: 16px;
+        padding-bottom: 40px;
+    }
+
+    .urban_image {
+
+        width: 110px;
+        height: 110px;
+        margin-bottom: 25px;
+        margin-top: 45px;
+        border-radius: 50%;
+        background: #212121 url("../../../../public/Data/urban-awards.png") scroll;
+        background-size: 55px 55px;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .urban_small_text {
+        margin-bottom: 25px;
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+
+    .urban_large_text {
+        font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 1.4;
+
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .urban {
+        width: 100%;
+
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .urban_left {
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 6vw;
+    }
+
+    .urban_right {
+        display: flex;
+        align-items: center;
+
+        justify-content: space-between;
+        width: 90vw;
+        margin-left: 6vw;
+    }
+
+    .urban_right_left {
+        margin-left: 4vw;
+    }
+
+    .urban_right_right {
+        margin-right: 10vw;
+    }
+
+    .urban_center {
+        margin-top: 2vw;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+
+        margin-left: 6vw;
+    }
+
+    .urban_image {
+        width: 20vw;
+        height: 20vw;
+        background-size: 8vw 8vw;
+    }
+
+    .large_text {
+        font-size: 5vw;
+        width: 100%;
+
+    }
+
+    .small_text {
+        font-size: 2.8vw;
+    }
+
+    .urban_small_text {
+        font-size: 3vw;
+        margin-left: 4vw;
+    }
+
+    .urban_large_text {
+        font-size: 5vw;
+        margin-left: 4vw;
+    }
+
+    .right_large {
+        font-size: 8vw;
+        margin-bottom: 3vw;
+    }
+
+    .right_small {
+        font-size: 3vw;
+    }
+
+}
+

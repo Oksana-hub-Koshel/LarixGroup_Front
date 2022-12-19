@@ -1,0 +1,361 @@
+.container {
+    width: 100%;
+    z-index: 1;
+}
+
+.line {
+    border: 0.03vw solid grey;
+    opacity: 0.5;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2vw 0;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.content_left {
+    text-align: left;
+}
+
+.content_right {
+    flex-basis: 8vw;
+
+}
+
+.content_left_text {
+    font-size: 1vw;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.content_left_slogan {
+    padding: 3vw 0 3vw 0;
+    line-height: 1.3;
+    font-family: "Golos Text Regular", Arial, Helvetica, sans-serif;
+    font-size: 4vw;
+    font-weight: inherit;
+}
+
+.content_left_text2 {
+    padding-bottom: 4vw;
+    font-size: 1.2vw;
+    opacity: 0.7;
+}
+
+.wrapper_btn {
+    display: flex;
+    margin-bottom: 2vw;
+}
+
+.btn_left {
+
+    margin-right: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18vw;
+    height: 4.2vw;
+    color: #1d1d1d;
+    background: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.btn_left a {
+    font-size: 1vw;
+    color: black;
+}
+
+.btn_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18vw;
+    height: 4.2vw;
+    border-radius: 0.5vw;
+    background: white;
+    border: none;
+    cursor: pointer;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+    color: #1d1d1d;
+    text-transform: uppercase;
+
+}
+
+.btn_right a {
+    font-size: 1vw;
+}
+
+.content_high {
+    margin-top: 3vw;
+    margin-bottom: 8vw;
+}
+
+.content_high img {
+    position: relative;
+    text-align: left;
+    height: 2.5vw;
+    width: 2.5vw;
+}
+
+.content_high p {
+    padding-top: 2vw;
+
+    color: #d7d7d7;
+    line-height: 1.5;
+}
+
+.content_low {
+    padding-top: 0.5vw;
+}
+
+.content_low img {
+    position: relative;
+    text-align: left;
+    height: 2.5vw;
+    width: 2.5vw;
+}
+
+.content_low p {
+    padding-top: 1.5vw;
+    color: #d7d7d7;
+    line-height: 1.5;
+}
+
+.text_design {
+    font-size: 1.1vw;
+}
+
+.img1 {
+    width: 3.5vw;
+    height: 3.5vw;
+
+}
+
+
+.img2 {
+    width: 3.5vw;
+    height: 3.5vw;
+
+}
+
+.text {
+    color: #fff;
+    font-family: "Golos Text Medium", Arial, Helvetica, sans-serif;
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 100%;
+    }
+
+    .wrapper {
+
+        padding: 45px 0;
+
+    }
+
+    .content_left {
+
+        margin-bottom: 30px;
+    }
+
+    .content_right {
+        flex-basis: 100px;
+        margin-right: 50px;
+        margin-top: 20px;
+
+    }
+
+    .content_left_text {
+        font-size: 12px;
+
+
+    }
+
+    .content_left_slogan {
+        padding: 35px 0 35px 0;
+        line-height: 1.3;
+        font-size: 75px;
+
+    }
+
+    .content_left_text2 {
+        padding-bottom: 60px;
+        font-size: 20px;
+
+    }
+
+    .wrapper_btn {
+
+        margin-bottom: 25px;
+    }
+
+    .btn_left {
+        width: 265px;
+        height: 65px;
+        margin-right: 45px;
+
+    }
+
+    .btn_left a {
+        font-size: 14px;
+    }
+
+    .btn_right {
+
+        width: 265px;
+        height: 65px;
+        border-radius: 10px;
+    }
+
+    .btn_right a {
+        font-size: 12px;
+    }
+
+    .content_high {
+        margin-top: 40px;
+        margin-bottom: 90px;
+    }
+
+    .content_high img {
+
+        height: 35px;
+        width: 35px;
+    }
+
+
+    .content_low {
+        padding-top: 10px;
+    }
+
+    .content_low img {
+
+        height: 35px;
+        width: 35px;
+    }
+
+    .content_low p {
+        padding-top: 25px;
+
+    }
+
+    .text_design {
+        font-size: 18px;
+    }
+
+    .img1 {
+        width: 45px;
+        height: 45px;
+
+    }
+
+    .img2 {
+        width: 45px;
+        height: 45px;
+
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .content_left_text {
+        font-size: 2vw;
+        color: lightgray;
+    }
+
+    .content_left_slogan {
+        font-size: 8vw;
+    }
+
+    .content_left_text2 {
+        line-height: 1.7;
+        padding-bottom: 10vw;
+        font-size: 2.5vw;
+        width: 100%;
+        color: white;
+
+    }
+
+    .content_left {
+        margin-left: 20px;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+
+    .btn_left {
+        width: 30vw;
+        height: 10vw;
+        margin-right: 70px;
+
+
+    }
+
+    .btn_right {
+        width: 30vw;
+        height: 10vw;
+        border-radius: 5px;
+    }
+
+    .btn_left a {
+        font-size: 2.5vw;
+    }
+
+    .btn_right a {
+        font-size: 2.5vw;
+    }
+
+    .content_high img {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .content_low img {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .content_high {
+        margin-top: 0;
+        margin-left: 8vw;
+
+
+    }
+
+    .content_right {
+        display: flex;
+        flex-basis: 12vw;
+        flex-direction: row;
+        padding-top: 1vw;
+        margin-top: 4vw;
+        gap: 30vw
+
+
+    }
+
+    .content_low {
+        padding-top: 0.5vw;
+        width: 100%;
+
+    }
+
+    .text_design {
+        width: 100%;
+        font-size: 3vw;
+        line-height: 1;
+    }
+
+}
+
